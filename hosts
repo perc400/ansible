@@ -1,0 +1,8 @@
+[group_vm]
+infra-main ansible_host=192.168.140.136
+app-server ansible_host=192.168.140.137
+monitoring-server ansible_host=192.168.140.138
+
+[group_vm:vars]
+ansible_user=ansible
+ansible_port=22
