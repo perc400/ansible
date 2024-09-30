@@ -1,8 +1,17 @@
-[group_vm]
-app-server ansible_host=192.168.140.137
+[monitoring_vm]
 monitoring-server ansible_host=192.168.140.138
+
+[app_vm]
+app-server ansible_host=192.168.140.137
+
+[proxy_vm]
 proxy-server ansible_host=192.168.140.139
 
-[group_vm:vars]
+[all_VMs:children]
+app_vm
+proxy_vm
+monitoring_vm
+
+[all_VMs:vars]
 ansible_user=ansible
 ansible_port=2424

@@ -6,7 +6,7 @@
   tasks:
     - ping:
 
-    - name: Install tcpdump
+    - name: apt install tcpdump
       apt:
         name: tcpdump
         state: latest
