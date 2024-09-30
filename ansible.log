@@ -1,0 +1,19 @@
+2024-09-30 22:41:39,801 p=26145 u=root n=ansible | proxy-server | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-09-30 22:41:39,884 p=26145 u=root n=ansible | monitoring-server | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-09-30 22:41:41,599 p=26145 u=root n=ansible | app-server | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host",
+    "unreachable": true
+}
