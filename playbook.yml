@@ -1,0 +1,13 @@
+- name: Install tcpdump
+  gather_facts: No
+  hosts: monitoring-server
+  vars:
+    user_name: ansible
+  tasks:
+    - ping:
+
+    - name: Install tcpdump
+      apt:
+        name: tcpdump
+        state: latest
+      become: yes
