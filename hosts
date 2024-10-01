@@ -11,7 +11,3 @@ proxy-server ansible_host=192.168.140.139
 app_vm
 proxy_vm
 monitoring_vm
-
-[all_VMs:vars]
-ansible_user=ansible
-ansible_port=2424
