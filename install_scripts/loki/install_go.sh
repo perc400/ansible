@@ -9,5 +9,3 @@ tar -C /usr/local -xzf go*.tar.gz
 echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile
 
 export PATH=$PATH:/usr/local/go/bin
-
-go version

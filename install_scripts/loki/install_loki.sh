@@ -8,6 +8,7 @@ cd /usr/src/
 git clone https://github.com/grafana/loki
 cd loki/
 
+export PATH=$PATH:/usr/local/go/bin
 go build ./cmd/loki
 
 mv loki /usr/local/bin/
