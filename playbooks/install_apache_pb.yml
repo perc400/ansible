@@ -1,6 +1,6 @@
 ---
 - name: Install Apache and Upload web page to monitoring-server
-  hosts: monitoring_vm
+  hosts: all_VMs
   become: yes
 
   vars:
@@ -8,17 +8,42 @@
     destination: /var/www/html
 
   tasks:
-  - name: Install Apache Web Server
-    apt: name=apache2 state=latest
+  - name: List controlled servers
+    debug:
+      var: ansible_os_family
 
-  - name: Copy web page
-    copy: src={{ source_file }} dest={{ destination }} mode=0555
-    notify: Restart Apache
+  - block: # =========Debian Block=========
 
-  - name: Start Web Server and enable on boot
-    service: name=apache2 state=started enabled=yes
+      - name: Install Apache Web Server for Debian
+        apt: name=apache2 state=latest
+
+      - name: Copy web page on Debian
+        copy: src={{ source_file }} dest={{ destination }} mode=0555
+        notify: Restart Apache on Debian
+
+      - name: "Start Web Server and enable on boot [Debian]"
+        service: name=apache2 state=started enabled=yes
+
+    when: ansible_os_family == "Debian"
+
+  - block: # =========Debian Block=========
+
+      - name: Install Apache Web Server for RedHat
+        yum: name=httpd state=latest
+
+      - name: Copy web page on RedHat
+        copy: src={{ source_file }} dest={{ destination }} mode=0555
+        notify: Restart Apache on RedHat
+
+      - name: "Start Web Server and enable on boot [RedHat]"
+        service: name=httpd state=started enabled=yes
+
+    when: ansible_os_family == "RedHat"
 
 
   handlers:
-  - name: Restart Apache
+  - name: Restart Apache on Debian
     service: name=apache2 state=restarted
+
+  - name: Restart Apache on RedHat
+    service: name=httpd state=restarted
