@@ -1,501 +1,109 @@
-2024-10-01 11:07:50,013 p=21288 u=root n=ansible | PLAY [Test Connection to servers] ********************************************************************
-2024-10-01 11:07:50,023 p=21288 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 11:07:52,466 p=21288 u=root n=ansible | ok: [proxy-server]
-2024-10-01 11:07:52,518 p=21288 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 11:07:53,136 p=21288 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 11:07:53,159 p=21288 u=root n=ansible | TASK [Ping servers] **********************************************************************************
-2024-10-01 11:07:53,682 p=21288 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 11:07:53,841 p=21288 u=root n=ansible | ok: [proxy-server]
-2024-10-01 11:07:53,880 p=21288 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 11:07:53,881 p=21288 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 11:07:53,881 p=21288 u=root n=ansible | monitoring-server          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 11:07:53,881 p=21288 u=root n=ansible | proxy-server               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:15:55,174 p=27730 u=root n=ansible | PLAY [Playbook for variables] *********************************************************************************************************************************************************************************
-2024-10-01 12:15:55,188 p=27730 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
-2024-10-01 12:15:57,539 p=27730 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:15:57,705 p=27730 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:15:58,383 p=27730 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 12:15:58,496 p=27730 u=root n=ansible | TASK [Print secret var] ***************************************************************************************************************************************************************************************
-2024-10-01 12:15:58,526 p=27730 u=root n=ansible | ok: [proxy-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 11:42:39,824 p=24109 u=root n=ansible | PLAY [monitoring-server] ****************************************************************************************************
+2024-10-02 11:42:39,838 p=24109 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************
+2024-10-02 11:42:42,867 p=24109 u=root n=ansible | ok: [monitoring-server]
+2024-10-02 11:42:42,885 p=24109 u=root n=ansible | TASK [Hello] ****************************************************************************************************************
+2024-10-02 11:42:42,915 p=24109 u=root n=ansible | ok: [monitoring-server] => (item=Server1) => {
+    "msg": "Hello Server1"
 }
-2024-10-01 12:15:58,538 p=27730 u=root n=ansible | ok: [monitoring-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 11:42:42,919 p=24109 u=root n=ansible | ok: [monitoring-server] => (item=Server2) => {
+    "msg": "Hello Server2"
 }
-2024-10-01 12:15:58,577 p=27730 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
-2024-10-01 12:15:58,577 p=27730 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:15:58,577 p=27730 u=root n=ansible | monitoring-server          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:15:58,577 p=27730 u=root n=ansible | proxy-server               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:25:09,426 p=28638 u=root n=ansible | PLAY [Playbook for variables] *********************************************************************************************************************************************************************************
-2024-10-01 12:25:09,437 p=28638 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
-2024-10-01 12:25:11,700 p=28638 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:25:11,786 p=28638 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:25:12,559 p=28638 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 12:25:12,583 p=28638 u=root n=ansible | TASK [Print secret [module: var]] *****************************************************************************************************************************************************************************
-2024-10-01 12:25:12,614 p=28638 u=root n=ansible | ok: [proxy-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 11:42:42,924 p=24109 u=root n=ansible | ok: [monitoring-server] => (item=Server3) => {
+    "msg": "Hello Server3"
 }
-2024-10-01 12:25:12,626 p=28638 u=root n=ansible | ok: [monitoring-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 11:42:42,948 p=24109 u=root n=ansible | PLAY RECAP ******************************************************************************************************************
+2024-10-02 11:42:42,948 p=24109 u=root n=ansible | monitoring-server          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-02 11:49:04,244 p=24755 u=root n=ansible | PLAY [monitoring-server] ****************************************************************************************************
+2024-10-02 11:49:04,254 p=24755 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************
+2024-10-02 11:49:07,033 p=24755 u=root n=ansible | ok: [monitoring-server]
+2024-10-02 11:49:07,052 p=24755 u=root n=ansible | TASK [Loop] *****************************************************************************************************************
+2024-10-02 11:49:07,080 p=24755 u=root n=ansible | ok: [monitoring-server] => (item=1) => {
+    "msg": "Hello 1"
 }
-2024-10-01 12:25:12,634 p=28638 u=root n=ansible | TASK [Print secret [module: msg]] *****************************************************************************************************************************************************************************
-2024-10-01 12:25:12,666 p=28638 u=root n=ansible | ok: [proxy-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 11:49:07,085 p=24755 u=root n=ansible | ok: [monitoring-server] => (item=2) => {
+    "msg": "Hello 2"
 }
-2024-10-01 12:25:12,679 p=28638 u=root n=ansible | ok: [monitoring-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 11:49:07,090 p=24755 u=root n=ansible | ok: [monitoring-server] => (item=3) => {
+    "msg": "Hello 3"
 }
-2024-10-01 12:25:12,718 p=28638 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
-2024-10-01 12:25:12,718 p=28638 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:25:12,719 p=28638 u=root n=ansible | monitoring-server          : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:25:12,719 p=28638 u=root n=ansible | proxy-server               : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:38:53,198 p=29963 u=root n=ansible | PLAY [Playbook for variables] *********************************************************************************************************************************************************************************
-2024-10-01 12:38:53,209 p=29963 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
-2024-10-01 12:38:55,563 p=29963 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:38:55,568 p=29963 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:38:56,367 p=29963 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 12:38:56,392 p=29963 u=root n=ansible | TASK [Print secret [module: var]] *****************************************************************************************************************************************************************************
-2024-10-01 12:38:56,421 p=29963 u=root n=ansible | ok: [proxy-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 11:49:07,119 p=24755 u=root n=ansible | TASK [Loop Until] ***********************************************************************************************************
+2024-10-02 11:49:14,686 p=24755 u=root n=ansible | changed: [monitoring-server]
+2024-10-02 11:49:14,703 p=24755 u=root n=ansible | TASK [Print output] *********************************************************************************************************
+2024-10-02 11:49:14,733 p=24755 u=root n=ansible | ok: [monitoring-server] => {
+    "output.stdout": "ZZZZ"
 }
-2024-10-01 12:38:56,436 p=29963 u=root n=ansible | ok: [monitoring-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 11:49:14,756 p=24755 u=root n=ansible | PLAY RECAP ******************************************************************************************************************
+2024-10-02 11:49:14,757 p=24755 u=root n=ansible | monitoring-server          : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-02 12:11:36,829 p=26924 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] **************************************************************
+2024-10-02 12:11:36,851 p=26924 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************
+2024-10-02 12:11:39,315 p=26924 u=root n=ansible | ok: [proxy-server]
+2024-10-02 12:11:39,340 p=26924 u=root n=ansible | ok: [monitoring-server]
+2024-10-02 12:11:40,046 p=26924 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
+2024-10-02 12:11:40,070 p=26924 u=root n=ansible | TASK [List controlled servers] **********************************************************************************************
+2024-10-02 12:11:40,097 p=26924 u=root n=ansible | ok: [proxy-server] => {
+    "ansible_os_family": "RedHat"
 }
-2024-10-01 12:38:56,442 p=29963 u=root n=ansible | TASK [Print secret [module: msg]] *****************************************************************************************************************************************************************************
-2024-10-01 12:38:56,472 p=29963 u=root n=ansible | ok: [proxy-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 12:11:40,106 p=26924 u=root n=ansible | ok: [monitoring-server] => {
+    "ansible_os_family": "Debian"
 }
-2024-10-01 12:38:56,484 p=29963 u=root n=ansible | ok: [monitoring-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 12:11:40,113 p=26924 u=root n=ansible | TASK [Install Apache Web Server for Debian] *********************************************************************************
+2024-10-02 12:11:40,139 p=26924 u=root n=ansible | skipping: [proxy-server]
+2024-10-02 12:11:41,689 p=26924 u=root n=ansible | ok: [monitoring-server]
+2024-10-02 12:11:41,696 p=26924 u=root n=ansible | TASK [Start Web Server and enable on boot [Debian]] *************************************************************************
+2024-10-02 12:11:41,718 p=26924 u=root n=ansible | skipping: [proxy-server]
+2024-10-02 12:11:42,639 p=26924 u=root n=ansible | ok: [monitoring-server]
+2024-10-02 12:11:42,646 p=26924 u=root n=ansible | TASK [Install Apache Web Server for RedHat] *********************************************************************************
+2024-10-02 12:11:42,684 p=26924 u=root n=ansible | skipping: [monitoring-server]
+2024-10-02 12:11:44,966 p=26924 u=root n=ansible | ok: [proxy-server]
+2024-10-02 12:11:44,972 p=26924 u=root n=ansible | TASK [Start Web Server and enable on boot [RedHat]] *************************************************************************
+2024-10-02 12:11:45,005 p=26924 u=root n=ansible | skipping: [monitoring-server]
+2024-10-02 12:11:45,785 p=26924 u=root n=ansible | ok: [proxy-server]
+2024-10-02 12:11:45,792 p=26924 u=root n=ansible | TASK [Copy web page to Web Server] ******************************************************************************************
+2024-10-02 12:11:47,190 p=26924 u=root n=ansible | changed: [monitoring-server] => (item=index.html)
+2024-10-02 12:11:47,547 p=26924 u=root n=ansible | changed: [proxy-server] => (item=index.html)
+2024-10-02 12:11:48,317 p=26924 u=root n=ansible | changed: [monitoring-server] => (item=styles.css)
+2024-10-02 12:11:49,260 p=26924 u=root n=ansible | changed: [proxy-server] => (item=styles.css)
+2024-10-02 12:11:49,287 p=26924 u=root n=ansible | RUNNING HANDLER [Restart Apache on Debian] **********************************************************************************
+2024-10-02 12:11:49,314 p=26924 u=root n=ansible | skipping: [proxy-server]
+2024-10-02 12:11:49,994 p=26924 u=root n=ansible | changed: [monitoring-server]
+2024-10-02 12:11:50,001 p=26924 u=root n=ansible | RUNNING HANDLER [Restart Apache on RedHat] **********************************************************************************
+2024-10-02 12:11:50,040 p=26924 u=root n=ansible | skipping: [monitoring-server]
+2024-10-02 12:11:51,954 p=26924 u=root n=ansible | changed: [proxy-server]
+2024-10-02 12:11:51,977 p=26924 u=root n=ansible | PLAY RECAP ******************************************************************************************************************
+2024-10-02 12:11:51,977 p=26924 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-02 12:11:51,977 p=26924 u=root n=ansible | monitoring-server          : ok=6    changed=2    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2024-10-02 12:11:51,978 p=26924 u=root n=ansible | proxy-server               : ok=6    changed=2    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2024-10-02 12:35:11,177 p=29361 u=root n=ansible | ERROR! the playbook: install_apache_pb_loop.yml could not be found
+2024-10-02 12:35:21,977 p=29380 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] **************************************************************
+2024-10-02 12:35:21,989 p=29380 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************
+2024-10-02 12:35:24,362 p=29380 u=root n=ansible | ok: [proxy-server]
+2024-10-02 12:35:24,446 p=29380 u=root n=ansible | ok: [monitoring-server]
+2024-10-02 12:35:25,133 p=29380 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
+2024-10-02 12:35:25,158 p=29380 u=root n=ansible | TASK [List controlled servers] **********************************************************************************************
+2024-10-02 12:35:25,187 p=29380 u=root n=ansible | ok: [proxy-server] => {
+    "ansible_os_family": "RedHat"
 }
-2024-10-01 12:38:56,525 p=29963 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
-2024-10-01 12:38:56,525 p=29963 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:38:56,526 p=29963 u=root n=ansible | monitoring-server          : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:38:56,526 p=29963 u=root n=ansible | proxy-server               : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:42:43,031 p=30368 u=root n=ansible | PLAY [Playbook for variables] *********************************************************************************************************************************************************************************
-2024-10-01 12:42:43,041 p=30368 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
-2024-10-01 12:42:45,273 p=30368 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:42:45,401 p=30368 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:42:46,193 p=30368 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 12:42:46,219 p=30368 u=root n=ansible | TASK [Print secret [module: var]] *****************************************************************************************************************************************************************************
-2024-10-01 12:42:46,251 p=30368 u=root n=ansible | ok: [proxy-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
+2024-10-02 12:35:25,198 p=29380 u=root n=ansible | ok: [monitoring-server] => {
+    "ansible_os_family": "Debian"
 }
-2024-10-01 12:42:46,264 p=30368 u=root n=ansible | ok: [monitoring-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:42:46,270 p=30368 u=root n=ansible | TASK [Print secret [module: msg]] *****************************************************************************************************************************************************************************
-2024-10-01 12:42:46,300 p=30368 u=root n=ansible | ok: [proxy-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:42:46,311 p=30368 u=root n=ansible | ok: [monitoring-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:42:46,406 p=30368 u=root n=ansible | TASK [Compare vars [module: set_fact]] ************************************************************************************************************************************************************************
-2024-10-01 12:42:46,436 p=30368 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:42:46,448 p=30368 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:42:46,455 p=30368 u=root n=ansible | TASK [debug] **************************************************************************************************************************************************************************************************
-2024-10-01 12:42:46,485 p=30368 u=root n=ansible | ok: [proxy-server] => {
-    "test_message": "Hello"
-}
-2024-10-01 12:42:46,498 p=30368 u=root n=ansible | ok: [monitoring-server] => {
-    "test_message": "Hello"
-}
-2024-10-01 12:42:46,537 p=30368 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
-2024-10-01 12:42:46,538 p=30368 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:42:46,538 p=30368 u=root n=ansible | monitoring-server          : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:42:46,538 p=30368 u=root n=ansible | proxy-server               : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:43:35,889 p=30484 u=root n=ansible | PLAY [Playbook for variables] *********************************************************************************************************************************************************************************
-2024-10-01 12:43:35,899 p=30484 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
-2024-10-01 12:43:37,719 p=30484 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:43:37,720 p=30484 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:43:38,992 p=30484 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 12:43:39,017 p=30484 u=root n=ansible | TASK [Print secret [module: var]] *****************************************************************************************************************************************************************************
-2024-10-01 12:43:39,052 p=30484 u=root n=ansible | ok: [proxy-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:43:39,066 p=30484 u=root n=ansible | ok: [monitoring-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:43:39,072 p=30484 u=root n=ansible | TASK [Print secret [module: msg]] *****************************************************************************************************************************************************************************
-2024-10-01 12:43:39,107 p=30484 u=root n=ansible | ok: [proxy-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:43:39,121 p=30484 u=root n=ansible | ok: [monitoring-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:43:39,127 p=30484 u=root n=ansible | TASK [Compare vars [module: set_fact]] ************************************************************************************************************************************************************************
-2024-10-01 12:43:39,155 p=30484 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:43:39,167 p=30484 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:43:39,173 p=30484 u=root n=ansible | TASK [debug] **************************************************************************************************************************************************************************************************
-2024-10-01 12:43:39,202 p=30484 u=root n=ansible | ok: [proxy-server] => {
-    "test_message": "Hello Content"
-}
-2024-10-01 12:43:39,216 p=30484 u=root n=ansible | ok: [monitoring-server] => {
-    "test_message": "Hello Content"
-}
-2024-10-01 12:43:39,255 p=30484 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
-2024-10-01 12:43:39,255 p=30484 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:43:39,255 p=30484 u=root n=ansible | monitoring-server          : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:43:39,256 p=30484 u=root n=ansible | proxy-server               : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:49:14,316 p=31052 u=root n=ansible | PLAY [Playbook for variables] *********************************************************************************************************************************************************************************
-2024-10-01 12:49:14,326 p=31052 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
-2024-10-01 12:49:16,761 p=31052 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:49:16,767 p=31052 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:49:17,423 p=31052 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 12:49:17,449 p=31052 u=root n=ansible | TASK [Print secret [module: debug, arg: var]] *****************************************************************************************************************************************************************
-2024-10-01 12:49:17,493 p=31052 u=root n=ansible | ok: [proxy-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:49:17,494 p=31052 u=root n=ansible | ok: [monitoring-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:49:17,499 p=31052 u=root n=ansible | TASK [Print secret [module: debug, arg: msg]] *****************************************************************************************************************************************************************
-2024-10-01 12:49:17,542 p=31052 u=root n=ansible | ok: [proxy-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:49:17,548 p=31052 u=root n=ansible | ok: [monitoring-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:49:17,555 p=31052 u=root n=ansible | TASK [Compare vars [module: set_fact]] ************************************************************************************************************************************************************************
-2024-10-01 12:49:17,582 p=31052 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:49:17,598 p=31052 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:49:17,603 p=31052 u=root n=ansible | TASK [debug] **************************************************************************************************************************************************************************************************
-2024-10-01 12:49:17,632 p=31052 u=root n=ansible | ok: [proxy-server] => {
-    "test_message": "Hello Content"
-}
-2024-10-01 12:49:17,645 p=31052 u=root n=ansible | ok: [monitoring-server] => {
-    "test_message": "Hello Content"
-}
-2024-10-01 12:49:17,661 p=31052 u=root n=ansible | TASK [shell] **************************************************************************************************************************************************************************************************
-2024-10-01 12:49:18,350 p=31052 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 12:49:18,440 p=31052 u=root n=ansible | changed: [proxy-server]
-2024-10-01 12:49:18,446 p=31052 u=root n=ansible | TASK [debug] **************************************************************************************************************************************************************************************************
-2024-10-01 12:49:18,477 p=31052 u=root n=ansible | ok: [proxy-server] => {
-    "result": {
-        "changed": true,
-        "cmd": "uptime",
-        "delta": "0:00:00.030476",
-        "end": "2024-10-01 12:49:18.337539",
-        "failed": false,
-        "msg": "",
-        "rc": 0,
-        "start": "2024-10-01 12:49:18.307063",
-        "stderr": "",
-        "stderr_lines": [],
-        "stdout": " 12:49:18 up  4:52,  2 users,  load average: 0.11, 0.03, 0.01",
-        "stdout_lines": [
-            " 12:49:18 up  4:52,  2 users,  load average: 0.11, 0.03, 0.01"
-        ]
-    }
-}
-2024-10-01 12:49:18,488 p=31052 u=root n=ansible | ok: [monitoring-server] => {
-    "result": {
-        "changed": true,
-        "cmd": "uptime",
-        "delta": "0:00:00.121111",
-        "end": "2024-10-01 12:49:18.297943",
-        "failed": false,
-        "msg": "",
-        "rc": 0,
-        "start": "2024-10-01 12:49:18.176832",
-        "stderr": "",
-        "stderr_lines": [],
-        "stdout": " 12:49:18 up  4:51,  3 users,  load average: 0.00, 0.00, 0.00",
-        "stdout_lines": [
-            " 12:49:18 up  4:51,  3 users,  load average: 0.00, 0.00, 0.00"
-        ]
-    }
-}
-2024-10-01 12:49:18,528 p=31052 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
-2024-10-01 12:49:18,529 p=31052 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:49:18,529 p=31052 u=root n=ansible | monitoring-server          : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:49:18,529 p=31052 u=root n=ansible | proxy-server               : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:50:36,934 p=31239 u=root n=ansible | PLAY [Playbook for variables] *********************************************************************************************************************************************************************************
-2024-10-01 12:50:36,945 p=31239 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
-2024-10-01 12:50:39,149 p=31239 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:50:39,269 p=31239 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:50:40,047 p=31239 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 12:50:40,072 p=31239 u=root n=ansible | TASK [Print secret [module: debug, arg: var]] *****************************************************************************************************************************************************************
-2024-10-01 12:50:40,103 p=31239 u=root n=ansible | ok: [proxy-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:50:40,114 p=31239 u=root n=ansible | ok: [monitoring-server] => {
-    "secret": "SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:50:40,120 p=31239 u=root n=ansible | TASK [Print secret [module: debug, arg: msg]] *****************************************************************************************************************************************************************
-2024-10-01 12:50:40,154 p=31239 u=root n=ansible | ok: [proxy-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:50:40,169 p=31239 u=root n=ansible | ok: [monitoring-server] => {
-    "msg": "Secret phrase SKDJFA@@_FDW432_4321FDS_FD"
-}
-2024-10-01 12:50:40,175 p=31239 u=root n=ansible | TASK [Compare vars [module: set_fact]] ************************************************************************************************************************************************************************
-2024-10-01 12:50:40,210 p=31239 u=root n=ansible | ok: [proxy-server]
-2024-10-01 12:50:40,228 p=31239 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 12:50:40,234 p=31239 u=root n=ansible | TASK [debug] **************************************************************************************************************************************************************************************************
-2024-10-01 12:50:40,262 p=31239 u=root n=ansible | ok: [proxy-server] => {
-    "test_message": "Hello Content"
-}
-2024-10-01 12:50:40,276 p=31239 u=root n=ansible | ok: [monitoring-server] => {
-    "test_message": "Hello Content"
-}
-2024-10-01 12:50:40,283 p=31239 u=root n=ansible | TASK [shell] **************************************************************************************************************************************************************************************************
-2024-10-01 12:50:40,820 p=31239 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 12:50:40,976 p=31239 u=root n=ansible | changed: [proxy-server]
-2024-10-01 12:50:40,982 p=31239 u=root n=ansible | TASK [debug] **************************************************************************************************************************************************************************************************
-2024-10-01 12:50:41,037 p=31239 u=root n=ansible | ok: [monitoring-server] => {
-    "result": {
-        "changed": true,
-        "cmd": "uptime",
-        "delta": "0:00:00.006683",
-        "end": "2024-10-01 12:50:40.778286",
-        "failed": false,
-        "msg": "",
-        "rc": 0,
-        "start": "2024-10-01 12:50:40.771603",
-        "stderr": "",
-        "stderr_lines": [],
-        "stdout": " 12:50:40 up  4:52,  3 users,  load average: 0.19, 0.06, 0.01",
-        "stdout_lines": [
-            " 12:50:40 up  4:52,  3 users,  load average: 0.19, 0.06, 0.01"
-        ]
-    }
-}
-2024-10-01 12:50:41,045 p=31239 u=root n=ansible | ok: [proxy-server] => {
-    "result": {
-        "changed": true,
-        "cmd": "uptime",
-        "delta": "0:00:00.008471",
-        "end": "2024-10-01 12:50:40.902181",
-        "failed": false,
-        "msg": "",
-        "rc": 0,
-        "start": "2024-10-01 12:50:40.893710",
-        "stderr": "",
-        "stderr_lines": [],
-        "stdout": " 12:50:40 up  4:53,  2 users,  load average: 0.03, 0.02, 0.00",
-        "stdout_lines": [
-            " 12:50:40 up  4:53,  2 users,  load average: 0.03, 0.02, 0.00"
-        ]
-    }
-}
-2024-10-01 12:50:41,050 p=31239 u=root n=ansible | TASK [debug] **************************************************************************************************************************************************************************************************
-2024-10-01 12:50:41,102 p=31239 u=root n=ansible | ok: [monitoring-server] => {
-    "result.stdout": " 12:50:40 up  4:52,  3 users,  load average: 0.19, 0.06, 0.01"
-}
-2024-10-01 12:50:41,104 p=31239 u=root n=ansible | ok: [proxy-server] => {
-    "result.stdout": " 12:50:40 up  4:53,  2 users,  load average: 0.03, 0.02, 0.00"
-}
-2024-10-01 12:50:41,143 p=31239 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
-2024-10-01 12:50:41,144 p=31239 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:50:41,144 p=31239 u=root n=ansible | monitoring-server          : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:50:41,144 p=31239 u=root n=ansible | proxy-server               : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 12:55:09,405 p=31712 u=root n=ansible | monitoring-server | CHANGED => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": true,
-    "stderr": "",
-    "stderr_lines": [],
-    "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following packages were automatically installed and are no longer required:\n  alsa-topology-conf alsa-ucm-conf apache2-bin apache2-data apache2-utils\n  at-spi2-core ca-certificates-java dconf-gsettings-backend dconf-service\n  default-jdk-headless default-jre default-jre-headless fonts-dejavu-extra\n  gsettings-desktop-schemas java-common libapr1 libaprutil1\n  libaprutil1-dbd-sqlite3 libaprutil1-ldap libasound2 libasound2-data\n  libatk-bridge2.0-0 libatk-wrapper-java libatk-wrapper-java-jni libatk1.0-0\n  libatk1.0-data libatspi2.0-0 libavahi-client3 libavahi-common-data\n  libavahi-common3 libcups2 libdconf1 libdrm-amdgpu1 libdrm-intel1\n  libdrm-nouveau2 libdrm-radeon1 libfontenc1 libgif7 libgl1 libgl1-amber-dri\n  libgl1-mesa-dri libglapi-mesa libglvnd0 libglx-mesa0 libglx0 libgraphite2-3\n  libharfbuzz0b libice-dev libice6 libjpeg-turbo8 libjpeg8 liblcms2-2\n  libllvm15 liblua5.3-0 libpciaccess0 libpcsclite1 libpthread-stubs0-dev\n  libsensors-config libsensors5 libsm-dev libsm6 libx11-dev libx11-xcb1\n  libxau-dev libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0\n  libxcb-randr0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0\n  libxcb1-dev libxcomposite1 libxdmcp-dev libxfixes3 libxft2 libxi6\n  libxinerama1 libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1\n  libxshmfence1 libxt-dev libxt6 libxtst6 libxv1 libxxf86dga1 libxxf86vm1\n  openjdk-11-jdk openjdk-11-jdk-headless openjdk-11-jre\n  openjdk-11-jre-headless session-migration ssl-cert x11-common x11-utils\n  x11proto-dev xorg-sgml-doctools xtrans-dev\nUse 'sudo apt autoremove' to remove them.\nThe following packages will be REMOVED:\n  apache2\n0 upgraded, 0 newly installed, 1 to remove and 6 not upgraded.\nAfter this operation, 548 kB disk space will be freed.\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 87703 files and directories currently installed.)\r\nRemoving apache2 (2.4.52-1ubuntu4.12) ...\r\nProcessing triggers for man-db (2.10.2-1) ...\r\nProcessing triggers for ufw (0.36.1-4ubuntu0.1) ...\r\n",
-    "stdout_lines": [
-        "Reading package lists...",
-        "Building dependency tree...",
-        "Reading state information...",
-        "The following packages were automatically installed and are no longer required:",
-        "  alsa-topology-conf alsa-ucm-conf apache2-bin apache2-data apache2-utils",
-        "  at-spi2-core ca-certificates-java dconf-gsettings-backend dconf-service",
-        "  default-jdk-headless default-jre default-jre-headless fonts-dejavu-extra",
-        "  gsettings-desktop-schemas java-common libapr1 libaprutil1",
-        "  libaprutil1-dbd-sqlite3 libaprutil1-ldap libasound2 libasound2-data",
-        "  libatk-bridge2.0-0 libatk-wrapper-java libatk-wrapper-java-jni libatk1.0-0",
-        "  libatk1.0-data libatspi2.0-0 libavahi-client3 libavahi-common-data",
-        "  libavahi-common3 libcups2 libdconf1 libdrm-amdgpu1 libdrm-intel1",
-        "  libdrm-nouveau2 libdrm-radeon1 libfontenc1 libgif7 libgl1 libgl1-amber-dri",
-        "  libgl1-mesa-dri libglapi-mesa libglvnd0 libglx-mesa0 libglx0 libgraphite2-3",
-        "  libharfbuzz0b libice-dev libice6 libjpeg-turbo8 libjpeg8 liblcms2-2",
-        "  libllvm15 liblua5.3-0 libpciaccess0 libpcsclite1 libpthread-stubs0-dev",
-        "  libsensors-config libsensors5 libsm-dev libsm6 libx11-dev libx11-xcb1",
-        "  libxau-dev libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0",
-        "  libxcb-randr0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0",
-        "  libxcb1-dev libxcomposite1 libxdmcp-dev libxfixes3 libxft2 libxi6",
-        "  libxinerama1 libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1",
-        "  libxshmfence1 libxt-dev libxt6 libxtst6 libxv1 libxxf86dga1 libxxf86vm1",
-        "  openjdk-11-jdk openjdk-11-jdk-headless openjdk-11-jre",
-        "  openjdk-11-jre-headless session-migration ssl-cert x11-common x11-utils",
-        "  x11proto-dev xorg-sgml-doctools xtrans-dev",
-        "Use 'sudo apt autoremove' to remove them.",
-        "The following packages will be REMOVED:",
-        "  apache2",
-        "0 upgraded, 0 newly installed, 1 to remove and 6 not upgraded.",
-        "After this operation, 548 kB disk space will be freed.",
-        "(Reading database ... ",
-        "(Reading database ... 5%",
-        "(Reading database ... 10%",
-        "(Reading database ... 15%",
-        "(Reading database ... 20%",
-        "(Reading database ... 25%",
-        "(Reading database ... 30%",
-        "(Reading database ... 35%",
-        "(Reading database ... 40%",
-        "(Reading database ... 45%",
-        "(Reading database ... 50%",
-        "(Reading database ... 55%",
-        "(Reading database ... 60%",
-        "(Reading database ... 65%",
-        "(Reading database ... 70%",
-        "(Reading database ... 75%",
-        "(Reading database ... 80%",
-        "(Reading database ... 85%",
-        "(Reading database ... 90%",
-        "(Reading database ... 95%",
-        "(Reading database ... 100%",
-        "(Reading database ... 87703 files and directories currently installed.)",
-        "Removing apache2 (2.4.52-1ubuntu4.12) ...",
-        "Processing triggers for man-db (2.10.2-1) ...",
-        "Processing triggers for ufw (0.36.1-4ubuntu0.1) ..."
-    ]
-}
-2024-10-01 12:55:14,122 p=31750 u=root n=ansible | monitoring-server | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false
-}
-2024-10-01 14:07:52,354 p=38644 u=root n=ansible | PLAY [Test Connection to servers] ********************************************************************
-2024-10-01 14:07:52,364 p=38644 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:07:54,742 p=38644 u=root n=ansible | ok: [proxy-server]
-2024-10-01 14:07:54,810 p=38644 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:07:55,504 p=38644 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-01 14:07:55,527 p=38644 u=root n=ansible | TASK [Ping servers] **********************************************************************************
-2024-10-01 14:07:56,070 p=38644 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:07:56,207 p=38644 u=root n=ansible | ok: [proxy-server]
-2024-10-01 14:07:56,247 p=38644 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:07:56,247 p=38644 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:07:56,247 p=38644 u=root n=ansible | monitoring-server          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:07:56,248 p=38644 u=root n=ansible | proxy-server               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:08:07,528 p=38720 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:08:07,541 p=38720 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:08:09,284 p=38720 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:08:09,303 p=38720 u=root n=ansible | TASK [Copy bash-script to monitoring-server] *********************************************************
-2024-10-01 14:08:09,462 p=38720 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
-2024-10-01 14:08:09,463 p=38720 u=root n=ansible | fatal: [monitoring-server]: FAILED! => {"changed": false, "msg": "Could not find or access './install_scripts/install_loki.sh'\nSearched in:\n\t/root/ansible/playbooks/files/./install_scripts/install_loki.sh\n\t/root/ansible/playbooks/./install_scripts/install_loki.sh\n\t/root/ansible/playbooks/files/./install_scripts/install_loki.sh\n\t/root/ansible/playbooks/./install_scripts/install_loki.sh on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
-2024-10-01 14:08:09,464 p=38720 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:08:09,464 p=38720 u=root n=ansible | monitoring-server          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:11:20,847 p=39037 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:11:20,857 p=39037 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:11:23,397 p=39037 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:11:23,417 p=39037 u=root n=ansible | TASK [Copy bash-script to monitoring-server] *********************************************************
-2024-10-01 14:11:23,499 p=39037 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
-2024-10-01 14:11:23,499 p=39037 u=root n=ansible | fatal: [monitoring-server]: FAILED! => {"changed": false, "msg": "Could not find or access 'install_scripts/install_loki.sh'\nSearched in:\n\t/root/ansible/playbooks/files/install_scripts/install_loki.sh\n\t/root/ansible/playbooks/install_scripts/install_loki.sh\n\t/root/ansible/playbooks/files/install_scripts/install_loki.sh\n\t/root/ansible/playbooks/install_scripts/install_loki.sh on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
-2024-10-01 14:11:23,501 p=39037 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:11:23,501 p=39037 u=root n=ansible | monitoring-server          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:15:09,573 p=39423 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:15:09,583 p=39423 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:15:12,117 p=39423 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:15:12,135 p=39423 u=root n=ansible | TASK [Copy bash-script to monitoring-server] *********************************************************
-2024-10-01 14:15:12,217 p=39423 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
-2024-10-01 14:15:12,218 p=39423 u=root n=ansible | fatal: [monitoring-server]: FAILED! => {"changed": false, "msg": "Could not find or access 'install_scripts/install_loki.sh'\nSearched in:\n\t/root/ansible/playbooks/files/install_scripts/install_loki.sh\n\t/root/ansible/playbooks/install_scripts/install_loki.sh\n\t/root/ansible/playbooks/files/install_scripts/install_loki.sh\n\t/root/ansible/playbooks/install_scripts/install_loki.sh on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
-2024-10-01 14:15:12,219 p=39423 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:15:12,219 p=39423 u=root n=ansible | monitoring-server          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:16:57,941 p=39636 u=root n=ansible | ERROR! this task 'bash' has extra params, which is only allowed in the following modules: ansible.legacy.set_fact, ansible.legacy.shell, ansible.builtin.import_role, ansible.builtin.script, win_command, ansible.legacy.import_tasks, ansible.legacy.group_by, ansible.builtin.win_shell, ansible.legacy.command, ansible.legacy.script, ansible.builtin.command, ansible.builtin.add_host, ansible.builtin.import_tasks, meta, ansible.builtin.include, ansible.builtin.include_tasks, include_role, ansible.legacy.meta, ansible.builtin.group_by, include, ansible.windows.win_shell, include_vars, ansible.builtin.meta, ansible.legacy.raw, win_shell, ansible.legacy.include_role, shell, import_tasks, include_tasks, ansible.legacy.win_shell, command, ansible.legacy.include_vars, ansible.legacy.win_command, ansible.builtin.set_fact, script, add_host, ansible.builtin.shell, ansible.builtin.include_vars, ansible.legacy.include_tasks, import_role, raw, set_fact, ansible.builtin.raw, ansible.builtin.include_role, ansible.legacy.import_role, ansible.legacy.include, ansible.windows.win_command, ansible.legacy.add_host, group_by, ansible.builtin.win_command
-2024-10-01 14:17:09,216 p=39646 u=root n=ansible | monitoring-server | CHANGED | rc=0 >>
-/home/ansible
-
-2024-10-01 14:19:47,894 p=39930 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:19:47,904 p=39930 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:19:50,454 p=39930 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:19:50,473 p=39930 u=root n=ansible | TASK [Copy bash-script to monitoring-server] *********************************************************
-2024-10-01 14:19:50,556 p=39930 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
-2024-10-01 14:19:50,556 p=39930 u=root n=ansible | fatal: [monitoring-server]: FAILED! => {"changed": false, "msg": "Could not find or access './install_scripts/loki/install_loki.sh'\nSearched in:\n\t/root/ansible/playbooks/files/./install_scripts/loki/install_loki.sh\n\t/root/ansible/playbooks/./install_scripts/loki/install_loki.sh\n\t/root/ansible/playbooks/files/./install_scripts/loki/install_loki.sh\n\t/root/ansible/playbooks/./install_scripts/loki/install_loki.sh on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
-2024-10-01 14:19:50,557 p=39930 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:19:50,558 p=39930 u=root n=ansible | monitoring-server          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:21:51,837 p=40147 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:21:51,847 p=40147 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:21:54,359 p=40147 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:21:54,378 p=40147 u=root n=ansible | TASK [Copy bash-script to monitoring-server] *********************************************************
-2024-10-01 14:21:54,461 p=40147 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
-2024-10-01 14:21:54,461 p=40147 u=root n=ansible | fatal: [monitoring-server]: FAILED! => {"changed": false, "msg": "Could not find or access '/install_scripts/loki/install_loki.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
-2024-10-01 14:21:54,463 p=40147 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:21:54,463 p=40147 u=root n=ansible | monitoring-server          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:24:03,123 p=40369 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:24:03,133 p=40369 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:24:05,631 p=40369 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:24:05,650 p=40369 u=root n=ansible | TASK [Copy bash-script to monitoring-server] *********************************************************
-2024-10-01 14:24:06,991 p=40369 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:24:06,999 p=40369 u=root n=ansible | TASK [shell] *****************************************************************************************
-2024-10-01 14:24:07,632 p=40369 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:24:07,641 p=40369 u=root n=ansible | TASK [debug] *****************************************************************************************
-2024-10-01 14:24:07,676 p=40369 u=root n=ansible | ok: [monitoring-server] => {
-    "temp.stdout": "total 40\ndrwxr-x--- 5 ansible ansible 4096 Oct  1 14:24 .\ndrwxr-xr-x 3 root    root    4096 Oct  1 01:24 ..\ndrwx------ 3 ansible ansible 4096 Sep 30 22:38 .ansible\n-rw------- 1 ansible ansible   15 Sep 30 22:35 .bash_history\n-rw-r--r-- 1 ansible ansible  220 Sep 30 22:14 .bash_logout\n-rw-r--r-- 1 ansible ansible 3771 Sep 30 22:14 .bashrc\ndrwx------ 2 ansible ansible 4096 Sep 30 22:35 .cache\n-rwxrwxrwx 1 root    root     871 Oct  1 14:24 install_loki.sh\n-rw-r--r-- 1 ansible ansible  807 Sep 30 22:14 .profile\ndrwx------ 2 ansible ansible 4096 Sep 30 22:26 .ssh"
-}
-2024-10-01 14:24:07,700 p=40369 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:24:07,701 p=40369 u=root n=ansible | monitoring-server          : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:36:40,610 p=41582 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:36:40,620 p=41582 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:36:43,180 p=41582 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:36:43,199 p=41582 u=root n=ansible | TASK [Copy bash-script to monitoring-server] *********************************************************
-2024-10-01 14:36:44,531 p=41582 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:36:44,539 p=41582 u=root n=ansible | TASK [shell] *****************************************************************************************
-2024-10-01 14:36:45,065 p=41582 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:36:45,073 p=41582 u=root n=ansible | TASK [debug] *****************************************************************************************
-2024-10-01 14:36:45,101 p=41582 u=root n=ansible | ok: [monitoring-server] => {
-    "temp.stdout": "total 40\ndrwxr-x--- 5 ansible ansible 4096 Oct  1 14:36 .\ndrwxr-xr-x 3 root    root    4096 Oct  1 01:24 ..\ndrwx------ 3 ansible ansible 4096 Sep 30 22:38 .ansible\n-rw------- 1 ansible ansible   15 Sep 30 22:35 .bash_history\n-rw-r--r-- 1 ansible ansible  220 Sep 30 22:14 .bash_logout\n-rw-r--r-- 1 ansible ansible 3771 Sep 30 22:14 .bashrc\ndrwx------ 2 ansible ansible 4096 Sep 30 22:35 .cache\n-rwxrwxrwx 1 root    root     871 Oct  1 14:36 install_loki.sh\n-rw-r--r-- 1 ansible ansible  807 Sep 30 22:14 .profile\ndrwx------ 2 ansible ansible 4096 Sep 30 22:26 .ssh"
-}
-2024-10-01 14:36:45,109 p=41582 u=root n=ansible | TASK [Run script] ************************************************************************************
-2024-10-01 14:37:39,439 p=41582 u=root n=ansible | fatal: [monitoring-server]: FAILED! => {"changed": true, "cmd": "bash ~ansible/install_loki.sh", "delta": "0:00:53.765554", "end": "2024-10-01 14:37:39.204927", "msg": "non-zero return code", "rc": 127, "start": "2024-10-01 14:36:45.439373", "stderr": "Cloning into 'loki'...\nUpdating files:  16% (2527/15330)\rUpdating files:  17% (2607/15330)\rUpdating files:  18% (2760/15330)\rUpdating files:  19% (2913/15330)\rUpdating files:  20% (3066/15330)\rUpdating files:  21% (3220/15330)\rUpdating files:  22% (3373/15330)\rUpdating files:  23% (3526/15330)\rUpdating files:  24% (3680/15330)\rUpdating files:  25% (3833/15330)\rUpdating files:  26% (3986/15330)\rUpdating files:  27% (4140/15330)\rUpdating files:  28% (4293/15330)\rUpdating files:  29% (4446/15330)\rUpdating files:  30% (4599/15330)\rUpdating files:  31% (4753/15330)\rUpdating files:  32% (4906/15330)\rUpdating files:  33% (5059/15330)\rUpdating files:  34% (5213/15330)\rUpdating files:  34% (5312/15330)\rUpdating files:  35% (5366/15330)\rUpdating files:  36% (5519/15330)\rUpdating files:  37% (5673/15330)\rUpdating files:  38% (5826/15330)\rUpdating files:  39% (5979/15330)\rUpdating files:  40% (6132/15330)\rUpdating files:  41% (6286/15330)\rUpdating files:  42% (6439/15330)\rUpdating files:  43% (6592/15330)\rUpdating files:  44% (6746/15330)\rUpdating files:  45% (6899/15330)\rUpdating files:  46% (7052/15330)\rUpdating files:  47% (7206/15330)\rUpdating files:  48% (7359/15330)\rUpdating files:  49% (7512/15330)\rUpdating files:  50% (7665/15330)\rUpdating files:  51% (7819/15330)\rUpdating files:  52% (7972/15330)\rUpdating files:  53% (8125/15330)\rUpdating files:  54% (8279/15330)\rUpdating files:  55% (8432/15330)\rUpdating files:  56% (8585/15330)\rUpdating files:  56% (8681/15330)\rUpdating files:  57% (8739/15330)\rUpdating files:  58% (8892/15330)\rUpdating files:  59% (9045/15330)\rUpdating files:  60% (9198/15330)\rUpdating files:  61% (9352/15330)\rUpdating files:  62% (9505/15330)\rUpdating files:  63% (9658/15330)\rUpdating files:  64% (9812/15330)\rUpdating files:  65% (9965/15330)\rUpdating files:  66% (10118/15330)\rUpdating files:  67% (10272/15330)\rUpdating files:  68% (10425/15330)\rUpdating files:  69% (10578/15330)\rUpdating files:  70% (10731/15330)\rUpdating files:  71% (10885/15330)\rUpdating files:  72% (11038/15330)\rUpdating files:  73% (11191/15330)\rUpdating files:  74% (11345/15330)\rUpdating files:  75% (11498/15330)\rUpdating files:  76% (11651/15330)\rUpdating files:  77% (11805/15330)\rUpdating files:  78% (11958/15330)\rUpdating files:  79% (12111/15330)\rUpdating files:  80% (12264/15330)\rUpdating files:  81% (12418/15330)\rUpdating files:  82% (12571/15330)\rUpdating files:  83% (12724/15330)\rUpdating files:  83% (12751/15330)\rUpdating files:  84% (12878/15330)\rUpdating files:  85% (13031/15330)\rUpdating files:  86% (13184/15330)\rUpdating files:  87% (13338/15330)\rUpdating files:  88% (13491/15330)\rUpdating files:  89% (13644/15330)\rUpdating files:  90% (13797/15330)\rUpdating files:  91% (13951/15330)\rUpdating files:  92% (14104/15330)\rUpdating files:  93% (14257/15330)\rUpdating files:  94% (14411/15330)\rUpdating files:  95% (14564/15330)\rUpdating files:  96% (14717/15330)\rUpdating files:  97% (14871/15330)\rUpdating files:  98% (15024/15330)\rUpdating files:  99% (15177/15330)\rUpdating files: 100% (15330/15330)\rUpdating files: 100% (15330/15330), done.\n/home/ansible/install_loki.sh: line 11: go: command not found", "stderr_lines": ["Cloning into 'loki'...", "Updating files:  16% (2527/15330)", "Updating files:  17% (2607/15330)", "Updating files:  18% (2760/15330)", "Updating files:  19% (2913/15330)", "Updating files:  20% (3066/15330)", "Updating files:  21% (3220/15330)", "Updating files:  22% (3373/15330)", "Updating files:  23% (3526/15330)", "Updating files:  24% (3680/15330)", "Updating files:  25% (3833/15330)", "Updating files:  26% (3986/15330)", "Updating files:  27% (4140/15330)", "Updating files:  28% (4293/15330)", "Updating files:  29% (4446/15330)", "Updating files:  30% (4599/15330)", "Updating files:  31% (4753/15330)", "Updating files:  32% (4906/15330)", "Updating files:  33% (5059/15330)", "Updating files:  34% (5213/15330)", "Updating files:  34% (5312/15330)", "Updating files:  35% (5366/15330)", "Updating files:  36% (5519/15330)", "Updating files:  37% (5673/15330)", "Updating files:  38% (5826/15330)", "Updating files:  39% (5979/15330)", "Updating files:  40% (6132/15330)", "Updating files:  41% (6286/15330)", "Updating files:  42% (6439/15330)", "Updating files:  43% (6592/15330)", "Updating files:  44% (6746/15330)", "Updating files:  45% (6899/15330)", "Updating files:  46% (7052/15330)", "Updating files:  47% (7206/15330)", "Updating files:  48% (7359/15330)", "Updating files:  49% (7512/15330)", "Updating files:  50% (7665/15330)", "Updating files:  51% (7819/15330)", "Updating files:  52% (7972/15330)", "Updating files:  53% (8125/15330)", "Updating files:  54% (8279/15330)", "Updating files:  55% (8432/15330)", "Updating files:  56% (8585/15330)", "Updating files:  56% (8681/15330)", "Updating files:  57% (8739/15330)", "Updating files:  58% (8892/15330)", "Updating files:  59% (9045/15330)", "Updating files:  60% (9198/15330)", "Updating files:  61% (9352/15330)", "Updating files:  62% (9505/15330)", "Updating files:  63% (9658/15330)", "Updating files:  64% (9812/15330)", "Updating files:  65% (9965/15330)", "Updating files:  66% (10118/15330)", "Updating files:  67% (10272/15330)", "Updating files:  68% (10425/15330)", "Updating files:  69% (10578/15330)", "Updating files:  70% (10731/15330)", "Updating files:  71% (10885/15330)", "Updating files:  72% (11038/15330)", "Updating files:  73% (11191/15330)", "Updating files:  74% (11345/15330)", "Updating files:  75% (11498/15330)", "Updating files:  76% (11651/15330)", "Updating files:  77% (11805/15330)", "Updating files:  78% (11958/15330)", "Updating files:  79% (12111/15330)", "Updating files:  80% (12264/15330)", "Updating files:  81% (12418/15330)", "Updating files:  82% (12571/15330)", "Updating files:  83% (12724/15330)", "Updating files:  83% (12751/15330)", "Updating files:  84% (12878/15330)", "Updating files:  85% (13031/15330)", "Updating files:  86% (13184/15330)", "Updating files:  87% (13338/15330)", "Updating files:  88% (13491/15330)", "Updating files:  89% (13644/15330)", "Updating files:  90% (13797/15330)", "Updating files:  91% (13951/15330)", "Updating files:  92% (14104/15330)", "Updating files:  93% (14257/15330)", "Updating files:  94% (14411/15330)", "Updating files:  95% (14564/15330)", "Updating files:  96% (14717/15330)", "Updating files:  97% (14871/15330)", "Updating files:  98% (15024/15330)", "Updating files:  99% (15177/15330)", "Updating files: 100% (15330/15330)", "Updating files: 100% (15330/15330), done.", "/home/ansible/install_loki.sh: line 11: go: command not found"], "stdout": "Rule added\nRule added (v6)", "stdout_lines": ["Rule added", "Rule added (v6)"]}
-2024-10-01 14:37:39,441 p=41582 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:37:39,441 p=41582 u=root n=ansible | monitoring-server          : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:54:09,182 p=43284 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:54:09,191 p=43284 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:54:12,685 p=43284 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:54:12,704 p=43284 u=root n=ansible | TASK [Copy bash-script [install_loki.sh] to monitoring-server] ***************************************
-2024-10-01 14:54:14,090 p=43284 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:54:14,098 p=43284 u=root n=ansible | TASK [Copy bash-script [install_go.sh] to monitoring-server] *****************************************
-2024-10-01 14:54:15,134 p=43284 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:54:15,143 p=43284 u=root n=ansible | TASK [shell] *****************************************************************************************
-2024-10-01 14:54:15,650 p=43284 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:54:15,658 p=43284 u=root n=ansible | TASK [debug] *****************************************************************************************
-2024-10-01 14:54:15,685 p=43284 u=root n=ansible | ok: [monitoring-server] => {
-    "temp.stdout": "total 44\ndrwxr-x--- 5 ansible ansible 4096 Oct  1 14:54 .\ndrwxr-xr-x 3 root    root    4096 Oct  1 01:24 ..\ndrwx------ 3 ansible ansible 4096 Sep 30 22:38 .ansible\n-rw------- 1 ansible ansible   15 Sep 30 22:35 .bash_history\n-rw-r--r-- 1 ansible ansible  220 Sep 30 22:14 .bash_logout\n-rw-r--r-- 1 ansible ansible 3771 Sep 30 22:14 .bashrc\ndrwx------ 2 ansible ansible 4096 Sep 30 22:35 .cache\n-rw-r--r-- 1 root    root     216 Oct  1 14:54 install_go.sh\n-rw-r--r-- 1 root    root     871 Oct  1 14:54 install_loki.sh\n-rw-r--r-- 1 ansible ansible  807 Sep 30 22:14 .profile\ndrwx------ 2 ansible ansible 4096 Sep 30 22:26 .ssh"
-}
-2024-10-01 14:54:15,692 p=43284 u=root n=ansible | TASK [Run script] ************************************************************************************
-2024-10-01 14:54:16,365 p=43284 u=root n=ansible | fatal: [monitoring-server]: FAILED! => {"changed": true, "cmd": "bash ~ansible/install_loki.sh", "delta": "0:00:00.308776", "end": "2024-10-01 14:54:16.323375", "msg": "non-zero return code", "rc": 128, "start": "2024-10-01 14:54:16.014599", "stderr": "fatal: destination path 'loki' already exists and is not an empty directory.", "stderr_lines": ["fatal: destination path 'loki' already exists and is not an empty directory."], "stdout": "Skipping adding existing rule\nSkipping adding existing rule (v6)", "stdout_lines": ["Skipping adding existing rule", "Skipping adding existing rule (v6)"]}
-2024-10-01 14:54:16,366 p=43284 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:54:16,366 p=43284 u=root n=ansible | monitoring-server          : ok=5    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2024-10-01 14:55:11,026 p=43450 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:55:11,037 p=43450 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:55:12,791 p=43450 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:55:12,809 p=43450 u=root n=ansible | TASK [Copy bash-script [install_loki.sh] to monitoring-server] ***************************************
-2024-10-01 14:55:14,083 p=43450 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:55:14,090 p=43450 u=root n=ansible | TASK [Copy bash-script [install_go.sh] to monitoring-server] *****************************************
-2024-10-01 14:55:15,083 p=43450 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:55:15,092 p=43450 u=root n=ansible | TASK [shell] *****************************************************************************************
-2024-10-01 14:55:15,596 p=43450 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:55:15,605 p=43450 u=root n=ansible | TASK [debug] *****************************************************************************************
-2024-10-01 14:55:15,630 p=43450 u=root n=ansible | ok: [monitoring-server] => {
-    "temp.stdout": "total 44\ndrwxr-x--- 5 ansible ansible 4096 Oct  1 14:54 .\ndrwxr-xr-x 3 root    root    4096 Oct  1 01:24 ..\ndrwx------ 3 ansible ansible 4096 Sep 30 22:38 .ansible\n-rw------- 1 ansible ansible   15 Sep 30 22:35 .bash_history\n-rw-r--r-- 1 ansible ansible  220 Sep 30 22:14 .bash_logout\n-rw-r--r-- 1 ansible ansible 3771 Sep 30 22:14 .bashrc\ndrwx------ 2 ansible ansible 4096 Sep 30 22:35 .cache\n-rw-r--r-- 1 root    root     216 Oct  1 14:54 install_go.sh\n-rw-r--r-- 1 root    root     871 Oct  1 14:54 install_loki.sh\n-rw-r--r-- 1 ansible ansible  807 Sep 30 22:14 .profile\ndrwx------ 2 ansible ansible 4096 Sep 30 22:26 .ssh"
-}
-2024-10-01 14:55:15,639 p=43450 u=root n=ansible | TASK [Run script] ************************************************************************************
-2024-10-01 14:55:24,520 p=43450 u=root n=ansible |  [ERROR]: User interrupted execution
-
-2024-10-01 14:56:43,042 p=43643 u=root n=ansible | PLAY [Install Loki and Start service] ****************************************************************
-2024-10-01 14:56:43,051 p=43643 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************
-2024-10-01 14:56:45,642 p=43643 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:56:45,661 p=43643 u=root n=ansible | TASK [Copy bash-script [install_loki.sh] to monitoring-server] ***************************************
-2024-10-01 14:56:46,930 p=43643 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:56:46,937 p=43643 u=root n=ansible | TASK [Copy bash-script [install_go.sh] to monitoring-server] *****************************************
-2024-10-01 14:56:47,916 p=43643 u=root n=ansible | ok: [monitoring-server]
-2024-10-01 14:56:47,923 p=43643 u=root n=ansible | TASK [shell] *****************************************************************************************
-2024-10-01 14:56:48,544 p=43643 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:56:48,552 p=43643 u=root n=ansible | TASK [debug] *****************************************************************************************
-2024-10-01 14:56:48,579 p=43643 u=root n=ansible | ok: [monitoring-server] => {
-    "temp.stdout": "total 44\ndrwxr-x--- 5 ansible ansible 4096 Oct  1 14:54 .\ndrwxr-xr-x 3 root    root    4096 Oct  1 01:24 ..\ndrwx------ 3 ansible ansible 4096 Sep 30 22:38 .ansible\n-rw------- 1 ansible ansible   15 Sep 30 22:35 .bash_history\n-rw-r--r-- 1 ansible ansible  220 Sep 30 22:14 .bash_logout\n-rw-r--r-- 1 ansible ansible 3771 Sep 30 22:14 .bashrc\ndrwx------ 2 ansible ansible 4096 Sep 30 22:35 .cache\n-rw-r--r-- 1 root    root     216 Oct  1 14:54 install_go.sh\n-rw-r--r-- 1 root    root     871 Oct  1 14:54 install_loki.sh\n-rw-r--r-- 1 ansible ansible  807 Sep 30 22:14 .profile\ndrwx------ 2 ansible ansible 4096 Sep 30 22:26 .ssh"
-}
-2024-10-01 14:56:48,586 p=43643 u=root n=ansible | TASK [Run install_go script] *************************************************************************
-2024-10-01 14:57:00,667 p=43643 u=root n=ansible | changed: [monitoring-server]
-2024-10-01 14:57:00,674 p=43643 u=root n=ansible | TASK [Run install_loki script] ***********************************************************************
-2024-10-01 14:57:47,095 p=43643 u=root n=ansible | fatal: [monitoring-server]: FAILED! => {"changed": true, "cmd": "bash ~ansible/install_loki.sh", "delta": "0:00:45.966486", "end": "2024-10-01 14:57:46.967379", "msg": "non-zero return code", "rc": 127, "start": "2024-10-01 14:57:01.000893", "stderr": "Cloning into 'loki'...\nUpdating files:  24% (3701/15330)\rUpdating files:  25% (3833/15330)\rUpdating files:  26% (3986/15330)\rUpdating files:  27% (4140/15330)\rUpdating files:  28% (4293/15330)\rUpdating files:  29% (4446/15330)\rUpdating files:  30% (4599/15330)\rUpdating files:  31% (4753/15330)\rUpdating files:  32% (4906/15330)\rUpdating files:  33% (5059/15330)\rUpdating files:  34% (5213/15330)\rUpdating files:  35% (5366/15330)\rUpdating files:  36% (5519/15330)\rUpdating files:  37% (5673/15330)\rUpdating files:  38% (5826/15330)\rUpdating files:  39% (5979/15330)\rUpdating files:  40% (6132/15330)\rUpdating files:  41% (6286/15330)\rUpdating files:  42% (6439/15330)\rUpdating files:  43% (6592/15330)\rUpdating files:  44% (6746/15330)\rUpdating files:  45% (6899/15330)\rUpdating files:  46% (7052/15330)\rUpdating files:  47% (7206/15330)\rUpdating files:  48% (7359/15330)\rUpdating files:  49% (7512/15330)\rUpdating files:  50% (7665/15330)\rUpdating files:  51% (7819/15330)\rUpdating files:  52% (7972/15330)\rUpdating files:  53% (8125/15330)\rUpdating files:  54% (8279/15330)\rUpdating files:  55% (8432/15330)\rUpdating files:  56% (8585/15330)\rUpdating files:  57% (8739/15330)\rUpdating files:  58% (8892/15330)\rUpdating files:  59% (9045/15330)\rUpdating files:  59% (9074/15330)\rUpdating files:  60% (9198/15330)\rUpdating files:  61% (9352/15330)\rUpdating files:  62% (9505/15330)\rUpdating files:  63% (9658/15330)\rUpdating files:  64% (9812/15330)\rUpdating files:  65% (9965/15330)\rUpdating files:  66% (10118/15330)\rUpdating files:  67% (10272/15330)\rUpdating files:  68% (10425/15330)\rUpdating files:  69% (10578/15330)\rUpdating files:  70% (10731/15330)\rUpdating files:  71% (10885/15330)\rUpdating files:  72% (11038/15330)\rUpdating files:  73% (11191/15330)\rUpdating files:  74% (11345/15330)\rUpdating files:  75% (11498/15330)\rUpdating files:  76% (11651/15330)\rUpdating files:  77% (11805/15330)\rUpdating files:  78% (11958/15330)\rUpdating files:  79% (12111/15330)\rUpdating files:  80% (12264/15330)\rUpdating files:  81% (12418/15330)\rUpdating files:  82% (12571/15330)\rUpdating files:  83% (12724/15330)\rUpdating files:  84% (12878/15330)\rUpdating files:  85% (13031/15330)\rUpdating files:  86% (13184/15330)\rUpdating files:  87% (13338/15330)\rUpdating files:  87% (13449/15330)\rUpdating files:  88% (13491/15330)\rUpdating files:  89% (13644/15330)\rUpdating files:  90% (13797/15330)\rUpdating files:  91% (13951/15330)\rUpdating files:  92% (14104/15330)\rUpdating files:  93% (14257/15330)\rUpdating files:  94% (14411/15330)\rUpdating files:  95% (14564/15330)\rUpdating files:  96% (14717/15330)\rUpdating files:  97% (14871/15330)\rUpdating files:  98% (15024/15330)\rUpdating files:  99% (15177/15330)\rUpdating files: 100% (15330/15330)\rUpdating files: 100% (15330/15330), done.\n/home/ansible/install_loki.sh: line 11: go: command not found", "stderr_lines": ["Cloning into 'loki'...", "Updating files:  24% (3701/15330)", "Updating files:  25% (3833/15330)", "Updating files:  26% (3986/15330)", "Updating files:  27% (4140/15330)", "Updating files:  28% (4293/15330)", "Updating files:  29% (4446/15330)", "Updating files:  30% (4599/15330)", "Updating files:  31% (4753/15330)", "Updating files:  32% (4906/15330)", "Updating files:  33% (5059/15330)", "Updating files:  34% (5213/15330)", "Updating files:  35% (5366/15330)", "Updating files:  36% (5519/15330)", "Updating files:  37% (5673/15330)", "Updating files:  38% (5826/15330)", "Updating files:  39% (5979/15330)", "Updating files:  40% (6132/15330)", "Updating files:  41% (6286/15330)", "Updating files:  42% (6439/15330)", "Updating files:  43% (6592/15330)", "Updating files:  44% (6746/15330)", "Updating files:  45% (6899/15330)", "Updating files:  46% (7052/15330)", "Updating files:  47% (7206/15330)", "Updating files:  48% (7359/15330)", "Updating files:  49% (7512/15330)", "Updating files:  50% (7665/15330)", "Updating files:  51% (7819/15330)", "Updating files:  52% (7972/15330)", "Updating files:  53% (8125/15330)", "Updating files:  54% (8279/15330)", "Updating files:  55% (8432/15330)", "Updating files:  56% (8585/15330)", "Updating files:  57% (8739/15330)", "Updating files:  58% (8892/15330)", "Updating files:  59% (9045/15330)", "Updating files:  59% (9074/15330)", "Updating files:  60% (9198/15330)", "Updating files:  61% (9352/15330)", "Updating files:  62% (9505/15330)", "Updating files:  63% (9658/15330)", "Updating files:  64% (9812/15330)", "Updating files:  65% (9965/15330)", "Updating files:  66% (10118/15330)", "Updating files:  67% (10272/15330)", "Updating files:  68% (10425/15330)", "Updating files:  69% (10578/15330)", "Updating files:  70% (10731/15330)", "Updating files:  71% (10885/15330)", "Updating files:  72% (11038/15330)", "Updating files:  73% (11191/15330)", "Updating files:  74% (11345/15330)", "Updating files:  75% (11498/15330)", "Updating files:  76% (11651/15330)", "Updating files:  77% (11805/15330)", "Updating files:  78% (11958/15330)", "Updating files:  79% (12111/15330)", "Updating files:  80% (12264/15330)", "Updating files:  81% (12418/15330)", "Updating files:  82% (12571/15330)", "Updating files:  83% (12724/15330)", "Updating files:  84% (12878/15330)", "Updating files:  85% (13031/15330)", "Updating files:  86% (13184/15330)", "Updating files:  87% (13338/15330)", "Updating files:  87% (13449/15330)", "Updating files:  88% (13491/15330)", "Updating files:  89% (13644/15330)", "Updating files:  90% (13797/15330)", "Updating files:  91% (13951/15330)", "Updating files:  92% (14104/15330)", "Updating files:  93% (14257/15330)", "Updating files:  94% (14411/15330)", "Updating files:  95% (14564/15330)", "Updating files:  96% (14717/15330)", "Updating files:  97% (14871/15330)", "Updating files:  98% (15024/15330)", "Updating files:  99% (15177/15330)", "Updating files: 100% (15330/15330)", "Updating files: 100% (15330/15330), done.", "/home/ansible/install_loki.sh: line 11: go: command not found"], "stdout": "Skipping adding existing rule\nSkipping adding existing rule (v6)", "stdout_lines": ["Skipping adding existing rule", "Skipping adding existing rule (v6)"]}
-2024-10-01 14:57:47,097 p=43643 u=root n=ansible | PLAY RECAP *******************************************************************************************
-2024-10-01 14:57:47,098 p=43643 u=root n=ansible | monitoring-server          : ok=6    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-10-02 12:35:25,204 p=29380 u=root n=ansible | TASK [Install Apache Web Server for Debian] *********************************************************************************
+2024-10-02 12:35:25,225 p=29380 u=root n=ansible | skipping: [proxy-server]
+2024-10-02 12:35:26,740 p=29380 u=root n=ansible | ok: [monitoring-server]
+2024-10-02 12:35:26,746 p=29380 u=root n=ansible | TASK [Start Web Server and enable on boot [Debian]] *************************************************************************
+2024-10-02 12:35:26,771 p=29380 u=root n=ansible | skipping: [proxy-server]
+2024-10-02 12:35:27,691 p=29380 u=root n=ansible | ok: [monitoring-server]
+2024-10-02 12:35:27,697 p=29380 u=root n=ansible | TASK [Install Apache Web Server for RedHat] *********************************************************************************
+2024-10-02 12:35:27,732 p=29380 u=root n=ansible | skipping: [monitoring-server]
+2024-10-02 12:35:29,977 p=29380 u=root n=ansible | ok: [proxy-server]
+2024-10-02 12:35:29,983 p=29380 u=root n=ansible | TASK [Start Web Server and enable on boot [RedHat]] *************************************************************************
+2024-10-02 12:35:30,023 p=29380 u=root n=ansible | skipping: [monitoring-server]
+2024-10-02 12:35:30,806 p=29380 u=root n=ansible | ok: [proxy-server]
+2024-10-02 12:35:30,813 p=29380 u=root n=ansible | TASK [Copy web page to Web Server] ******************************************************************************************
+2024-10-02 12:35:32,149 p=29380 u=root n=ansible | ok: [monitoring-server] => (item=/root/ansible/playbooks/files/./web_example/index.html)
+2024-10-02 12:35:32,434 p=29380 u=root n=ansible | ok: [proxy-server] => (item=/root/ansible/playbooks/files/./web_example/index.html)
+2024-10-02 12:35:33,202 p=29380 u=root n=ansible | ok: [monitoring-server] => (item=/root/ansible/playbooks/files/./web_example/styles.css)
+2024-10-02 12:35:34,024 p=29380 u=root n=ansible | ok: [proxy-server] => (item=/root/ansible/playbooks/files/./web_example/styles.css)
+2024-10-02 12:35:34,066 p=29380 u=root n=ansible | PLAY RECAP ******************************************************************************************************************
+2024-10-02 12:35:34,067 p=29380 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-02 12:35:34,067 p=29380 u=root n=ansible | monitoring-server          : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-10-02 12:35:34,067 p=29380 u=root n=ansible | proxy-server               : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
