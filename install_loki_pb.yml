@@ -1,0 +1,33 @@
+---
+- name: Install Loki and Start service
+  hosts: monitoring_vm
+  become: yes
+
+
+  vars:
+    source_file_loki: install_scripts/loki/install_loki.sh
+    source_file_go: install_scripts/loki/install_go.sh
+    destination: ~ansible
+
+
+  tasks:
+  - name: "Copy bash-script [install_loki.sh] to monitoring-server"
+    copy: src={{ source_file_loki }} dest={{ destination }}
+
+  - name: "Copy bash-script [install_go.sh] to monitoring-server"
+    copy: src={{ source_file_go }} dest={{ destination }}
+
+  - name: Run install_go script
+    shell: "bash {{ destination }}/install_go.sh"
+
+  - name: Run install_loki script
+    shell: "bash {{ destination }}/install_loki.sh"
+
+  - name: Start and enable loki.service
+    service: name=loki.service state=started enabled=yes
+
+  - shell: "systemctl status loki.service"
+    register: status
+
+  - debug:
+      var: status.stdout

@@ -1,0 +1,7 @@
+---
+- name: Install Apache and Upload web page to monitoring-server
+  hosts: all_VMs
+  become: yes
+
+  roles:
+    - { role: deploy_apache, when: ansible_system == 'Linux' }

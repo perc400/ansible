@@ -1,109 +1,2328 @@
-2024-10-02 11:42:39,824 p=24109 u=root n=ansible | PLAY [monitoring-server] ****************************************************************************************************
-2024-10-02 11:42:39,838 p=24109 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************
-2024-10-02 11:42:42,867 p=24109 u=root n=ansible | ok: [monitoring-server]
-2024-10-02 11:42:42,885 p=24109 u=root n=ansible | TASK [Hello] ****************************************************************************************************************
-2024-10-02 11:42:42,915 p=24109 u=root n=ansible | ok: [monitoring-server] => (item=Server1) => {
-    "msg": "Hello Server1"
+2024-10-06 18:37:42,272 p=3820 u=root n=ansible | monitoring-server | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.138 port 2424: No route to host",
+    "unreachable": true
 }
-2024-10-02 11:42:42,919 p=24109 u=root n=ansible | ok: [monitoring-server] => (item=Server2) => {
-    "msg": "Hello Server2"
+2024-10-06 18:37:59,228 p=3831 u=root n=ansible | proxy-server | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "192.168.140.139"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "fe80::20c:29ff:fe53:fa5e"
+        ],
+        "ansible_apparmor": {
+            "status": "disabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "11/12/2020",
+        "ansible_bios_vendor": "Phoenix Technologies LTD",
+        "ansible_bios_version": "6.00",
+        "ansible_board_asset_tag": "NA",
+        "ansible_board_name": "440BX Desktop Reference Platform",
+        "ansible_board_serial": "None",
+        "ansible_board_vendor": "Intel Corporation",
+        "ansible_board_version": "None",
+        "ansible_chassis_asset_tag": "No Asset Tag",
+        "ansible_chassis_serial": "None",
+        "ansible_chassis_vendor": "No Enclosure",
+        "ansible_chassis_version": "N/A",
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "(hd0,msdos1)/vmlinuz-4.18.0-553.16.1.el8_10.x86_64",
+            "crashkernel": "auto",
+            "quiet": true,
+            "rd.lvm.lv": "rl_proxy-server/swap",
+            "resume": "/dev/mapper/rl_proxy--server-swap",
+            "rhgb": true,
+            "ro": true,
+            "root": "/dev/mapper/rl_proxy--server-root"
+        },
+        "ansible_date_time": {
+            "date": "2024-10-06",
+            "day": "06",
+            "epoch": "1728229078",
+            "epoch_int": "1728229078",
+            "hour": "18",
+            "iso8601": "2024-10-06T15:37:58Z",
+            "iso8601_basic": "20241006T183758886951",
+            "iso8601_basic_short": "20241006T183758",
+            "iso8601_micro": "2024-10-06T15:37:58.886951Z",
+            "minute": "37",
+            "month": "10",
+            "second": "58",
+            "time": "18:37:58",
+            "tz": "MSK",
+            "tz_dst": "MSK",
+            "tz_offset": "+0300",
+            "weekday": "Sunday",
+            "weekday_number": "0",
+            "weeknumber": "40",
+            "year": "2024"
+        },
+        "ansible_default_ipv4": {
+            "address": "192.168.140.139",
+            "alias": "ens160",
+            "broadcast": "192.168.140.255",
+            "gateway": "192.168.140.2",
+            "interface": "ens160",
+            "macaddress": "00:0c:29:53:fa:5e",
+            "mtu": 1500,
+            "netmask": "255.255.255.0",
+            "network": "192.168.140.0",
+            "prefix": "24",
+            "type": "ether"
+        },
+        "ansible_default_ipv6": {},
+        "ansible_device_links": {
+            "ids": {
+                "dm-0": [
+                    "dm-name-rl_proxy--server-root",
+                    "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUvoyqQeXuBufc49HxLJW7tn0Wso1pYAHAs"
+                ],
+                "dm-1": [
+                    "dm-name-rl_proxy--server-swap",
+                    "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUv3N5at0tpgk2ejR6Q9WKxOsVa2ON1zalw"
+                ],
+                "nvme0n1": [
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926"
+                ],
+                "nvme0n1p1": [
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part1",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926-part1",
+                    "wwn-eui.1753d1bba0d3d433000c296d28d11926-part1"
+                ],
+                "nvme0n1p2": [
+                    "lvm-pv-uuid-Jk0CQA-rQFB-JdsK-klM3-aEaV-218U-eNfBCU",
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part2",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926-part2",
+                    "wwn-eui.1753d1bba0d3d433000c296d28d11926-part2"
+                ],
+                "sr0": [
+                    "ata-VMware_Virtual_IDE_CDROM_Drive_10000000000000000001"
+                ]
+            },
+            "labels": {
+                "sr0": [
+                    "Rocky-8-10-x86_64-dvd"
+                ]
+            },
+            "masters": {
+                "nvme0n1p2": [
+                    "dm-0",
+                    "dm-1"
+                ]
+            },
+            "uuids": {
+                "dm-0": [
+                    "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+                ],
+                "dm-1": [
+                    "4ef96ba7-e14f-4bbd-8f2d-8df1ad69f796"
+                ],
+                "nvme0n1p1": [
+                    "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                ],
+                "sr0": [
+                    "2024-05-27-14-12-59-00"
+                ]
+            }
+        },
+        "ansible_devices": {
+            "dm-0": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-rl_proxy--server-root",
+                        "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUvoyqQeXuBufc49HxLJW7tn0Wso1pYAHAs"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "46088192",
+                "sectorsize": "512",
+                "size": "21.98 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "dm-1": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-rl_proxy--server-swap",
+                        "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUv3N5at0tpgk2ejR6Q9WKxOsVa2ON1zalw"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "4ef96ba7-e14f-4bbd-8f2d-8df1ad69f796"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "4235264",
+                "sectorsize": "512",
+                "size": "2.02 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "nvme0n1": {
+                "holders": [],
+                "host": "Non-Volatile memory controller: VMware NVMe SSD Controller",
+                "links": {
+                    "ids": [
+                        "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000",
+                        "nvme-eui.1753d1bba0d3d433000c296d28d11926"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": "VMware Virtual NVMe Disk",
+                "partitions": {
+                    "nvme0n1p1": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part1",
+                                "nvme-eui.1753d1bba0d3d433000c296d28d11926-part1",
+                                "wwn-eui.1753d1bba0d3d433000c296d28d11926-part1"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": [
+                                "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                            ]
+                        },
+                        "sectors": "2097152",
+                        "sectorsize": 512,
+                        "size": "1.00 GB",
+                        "start": "2048",
+                        "uuid": "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                    },
+                    "nvme0n1p2": {
+                        "holders": [
+                            "rl_proxy--server-swap",
+                            "rl_proxy--server-root"
+                        ],
+                        "links": {
+                            "ids": [
+                                "lvm-pv-uuid-Jk0CQA-rQFB-JdsK-klM3-aEaV-218U-eNfBCU",
+                                "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part2",
+                                "nvme-eui.1753d1bba0d3d433000c296d28d11926-part2",
+                                "wwn-eui.1753d1bba0d3d433000c296d28d11926-part2"
+                            ],
+                            "labels": [],
+                            "masters": [
+                                "dm-0",
+                                "dm-1"
+                            ],
+                            "uuids": []
+                        },
+                        "sectors": "50329600",
+                        "sectorsize": 512,
+                        "size": "24.00 GB",
+                        "start": "2099200",
+                        "uuid": null
+                    }
+                },
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "52428800",
+                "sectorsize": "512",
+                "serial": "VMware",
+                "size": "25.00 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "sr0": {
+                "holders": [],
+                "host": "IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)",
+                "links": {
+                    "ids": [
+                        "ata-VMware_Virtual_IDE_CDROM_Drive_10000000000000000001"
+                    ],
+                    "labels": [
+                        "Rocky-8-10-x86_64-dvd"
+                    ],
+                    "masters": [],
+                    "uuids": [
+                        "2024-05-27-14-12-59-00"
+                    ]
+                },
+                "model": "VMware IDE CDR10",
+                "partitions": {},
+                "removable": "1",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "27761408",
+                "sectorsize": "2048",
+                "size": "13.24 GB",
+                "support_discard": "0",
+                "vendor": "NECVMWar",
+                "virtual": 1
+            }
+        },
+        "ansible_distribution": "Rocky",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/redhat-release",
+        "ansible_distribution_file_variety": "RedHat",
+        "ansible_distribution_major_version": "8",
+        "ansible_distribution_release": "Green Obsidian",
+        "ansible_distribution_version": "8.10",
+        "ansible_dns": {
+            "nameservers": [
+                "192.168.140.2"
+            ],
+            "search": [
+                "localdomain"
+            ]
+        },
+        "ansible_domain": "localdomain",
+        "ansible_effective_group_id": 0,
+        "ansible_effective_user_id": 0,
+        "ansible_ens160": {
+            "active": true,
+            "device": "ens160",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "on",
+                "loopback": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "off [fixed]",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "192.168.140.139",
+                "broadcast": "192.168.140.255",
+                "netmask": "255.255.255.0",
+                "network": "192.168.140.0",
+                "prefix": "24"
+            },
+            "ipv6": [
+                {
+                    "address": "fe80::20c:29ff:fe53:fa5e",
+                    "prefix": "64",
+                    "scope": "link"
+                }
+            ],
+            "macaddress": "00:0c:29:53:fa:5e",
+            "module": "vmxnet3",
+            "mtu": 1500,
+            "pciid": "0000:03:00.0",
+            "promisc": false,
+            "speed": 10000,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_env": {
+            "HOME": "/root",
+            "LANG": "en_US.UTF-8",
+            "LOGNAME": "root",
+            "LS_COLORS": "rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;40:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.zst=38;5;9:*.tzst=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.wim=38;5;9:*.swm=38;5;9:*.dwm=38;5;9:*.esd=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.mjpg=38;5;13:*.mjpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.m4a=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.oga=38;5;45:*.opus=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:",
+            "MAIL": "/var/mail/root",
+            "PATH": "/sbin:/bin:/usr/sbin:/usr/bin",
+            "PWD": "/home/ansible",
+            "SHELL": "/bin/bash",
+            "SHLVL": "1",
+            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-rmymgmfgkblfqfisehtvfrmrlkcdenll ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1728229075.398154-3834-260627336094412/AnsiballZ_setup.py",
+            "SUDO_GID": "1002",
+            "SUDO_UID": "1002",
+            "SUDO_USER": "ansible",
+            "TERM": "xterm-256color",
+            "USER": "root",
+            "_": "/usr/libexec/platform-python"
+        },
+        "ansible_fibre_channel_wwn": [],
+        "ansible_fips": false,
+        "ansible_form_factor": "Other",
+        "ansible_fqdn": "localhost.localdomain",
+        "ansible_hostname": "proxy-server",
+        "ansible_hostnqn": "nqn.2014-08.org.nvmexpress:uuid:f1104d56-6a32-bbe3-e4c0-44468a53fa5e",
+        "ansible_interfaces": [
+            "ens160",
+            "lo"
+        ],
+        "ansible_is_chroot": false,
+        "ansible_iscsi_iqn": "iqn.1994-05.com.redhat:2547f194c3fb",
+        "ansible_kernel": "4.18.0-553.16.1.el8_10.x86_64",
+        "ansible_kernel_version": "#1 SMP Thu Aug 8 17:47:08 UTC 2024",
+        "ansible_lo": {
+            "active": true,
+            "device": "lo",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "on [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on [fixed]",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "on",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off [fixed]",
+                "tx_scatter_gather": "on [fixed]",
+                "tx_scatter_gather_fraglist": "on [fixed]",
+                "tx_sctp_segmentation": "on",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "on [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "127.0.0.1",
+                "broadcast": "",
+                "netmask": "255.0.0.0",
+                "network": "127.0.0.0",
+                "prefix": "8"
+            },
+            "ipv6": [
+                {
+                    "address": "::1",
+                    "prefix": "128",
+                    "scope": "host"
+                }
+            ],
+            "mtu": 65536,
+            "promisc": false,
+            "timestamping": [],
+            "type": "loopback"
+        },
+        "ansible_loadavg": {
+            "15m": 0.13,
+            "1m": 0.01,
+            "5m": 0.05
+        },
+        "ansible_local": {},
+        "ansible_locally_reachable_ips": {
+            "ipv4": [
+                "127.0.0.0/8",
+                "127.0.0.1",
+                "192.168.140.139"
+            ],
+            "ipv6": [
+                "::1",
+                "fe80::20c:29ff:fe53:fa5e"
+            ]
+        },
+        "ansible_lsb": {},
+        "ansible_lvm": {
+            "lvs": {
+                "root": {
+                    "size_g": "21.98",
+                    "vg": "rl_proxy-server"
+                },
+                "swap": {
+                    "size_g": "2.02",
+                    "vg": "rl_proxy-server"
+                }
+            },
+            "pvs": {
+                "/dev/nvme0n1p2": {
+                    "free_g": "0",
+                    "size_g": "24.00",
+                    "vg": "rl_proxy-server"
+                }
+            },
+            "vgs": {
+                "rl_proxy-server": {
+                    "free_g": "0",
+                    "num_lvs": "2",
+                    "num_pvs": "1",
+                    "size_g": "24.00"
+                }
+            }
+        },
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "f297069fa39a400eb5aef430611bf944",
+        "ansible_memfree_mb": 1087,
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 1358,
+                "used": 388
+            },
+            "real": {
+                "free": 1087,
+                "total": 1746,
+                "used": 659
+            },
+            "swap": {
+                "cached": 0,
+                "free": 2067,
+                "total": 2067,
+                "used": 0
+            }
+        },
+        "ansible_memtotal_mb": 1746,
+        "ansible_mounts": [
+            {
+                "block_available": 4944242,
+                "block_size": 4096,
+                "block_total": 5758211,
+                "block_used": 813969,
+                "device": "/dev/mapper/rl_proxy--server-root",
+                "fstype": "xfs",
+                "inode_available": 11462854,
+                "inode_total": 11522048,
+                "inode_used": 59194,
+                "mount": "/",
+                "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
+                "size_available": 20251615232,
+                "size_total": 23585632256,
+                "uuid": "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+            },
+            {
+                "block_available": 183146,
+                "block_size": 4096,
+                "block_total": 259584,
+                "block_used": 76438,
+                "device": "/dev/nvme0n1p1",
+                "fstype": "xfs",
+                "inode_available": 523970,
+                "inode_total": 524288,
+                "inode_used": 318,
+                "mount": "/boot",
+                "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
+                "size_available": 750166016,
+                "size_total": 1063256064,
+                "uuid": "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+            }
+        ],
+        "ansible_nodename": "proxy-server",
+        "ansible_os_family": "RedHat",
+        "ansible_pkg_mgr": "dnf",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "(hd0,msdos1)/vmlinuz-4.18.0-553.16.1.el8_10.x86_64",
+            "crashkernel": "auto",
+            "quiet": true,
+            "rd.lvm.lv": [
+                "rl_proxy-server/root",
+                "rl_proxy-server/swap"
+            ],
+            "resume": "/dev/mapper/rl_proxy--server-swap",
+            "rhgb": true,
+            "ro": true,
+            "root": "/dev/mapper/rl_proxy--server-root"
+        },
+        "ansible_processor": [
+            "0",
+            "GenuineIntel",
+            "Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz"
+        ],
+        "ansible_processor_cores": 1,
+        "ansible_processor_count": 1,
+        "ansible_processor_nproc": 1,
+        "ansible_processor_threads_per_core": 1,
+        "ansible_processor_vcpus": 1,
+        "ansible_product_name": "VMware Virtual Platform",
+        "ansible_product_serial": "VMware-56 4d 10 f1 32 6a e3 bb-e4 c0 44 46 8a 53 fa 5e",
+        "ansible_product_uuid": "f1104d56-6a32-bbe3-e4c0-44468a53fa5e",
+        "ansible_product_version": "None",
+        "ansible_python": {
+            "executable": "/usr/libexec/platform-python",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 8,
+                "minor": 6,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                6,
+                8,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.6.8",
+        "ansible_real_group_id": 0,
+        "ansible_real_user_id": 0,
+        "ansible_selinux": {
+            "config_mode": "enforcing",
+            "mode": "enforcing",
+            "policyvers": 33,
+            "status": "enabled",
+            "type": "targeted"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBN4O0bhOsva24XE7PdRjgKCn4xx/+gsWpIZJTCb8Vy7jKmMgjw9QqeulLMPmg2r+t1bFt9tymZ7AXzxI5ynvm9w=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIKTlookN44Tdw8wpI+SZby6ZkBONF/LSK7gc0/P0tHvu",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDFcXHjhp5JLy+m/URzwYUjWPrlJiNPdOSLnCk3ioQplbfps5vsJ1aJKnXrIbPrnsl6qSwWthM93HE0ksMTJ+zJOejh5xMueD73wjxTHl3FEO3bxM8IBNdzbG8XO8PmcAzrbVpj7gtSoRPdl9DyFJsZ43alJJTvz0Zlx5dbJlA3SU+ROEvMs9NRJRBEWglsC8i5in2vBUylOTivgSdGynDtUGHrPFHeBpMrlBIXr43NnMhZBssAPnsC4321YtEnNcSCUv9RaiRn1FZ4rm1fwyq++ND8K8xoiSUIezUbkuRw7wzipZTcXhdVvIp0kJyL5QfnPFZRPBMF9gCmRaypx4vl83LYsw/fNdT+FqSaIzsUUBuYmuNiFbt7PeFcpGCQrhR//H0Jp7W9R17CHg0vCJ6OEXgva3AAaHsbGuzMxgTUmFb1CeeKGL1/+a4Sd05M3+cVTQYHErnvtFvqpicawjOk0lAXwHRnavorQr4jLHjI7AOGwJT39lgwibhtLKNIhVE=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_swapfree_mb": 2067,
+        "ansible_swaptotal_mb": 2067,
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [],
+        "ansible_system_capabilities_enforced": "False",
+        "ansible_system_vendor": "VMware, Inc.",
+        "ansible_uptime_seconds": 1197,
+        "ansible_user_dir": "/root",
+        "ansible_user_gecos": "root",
+        "ansible_user_gid": 0,
+        "ansible_user_id": "root",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 0,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virtualization_role": "guest",
+        "ansible_virtualization_tech_guest": [
+            "VMware"
+        ],
+        "ansible_virtualization_tech_host": [],
+        "ansible_virtualization_type": "VMware",
+        "discovered_interpreter_python": "/usr/libexec/platform-python",
+        "gather_subset": [
+            "all"
+        ],
+        "module_setup": true
+    },
+    "changed": false
 }
-2024-10-02 11:42:42,924 p=24109 u=root n=ansible | ok: [monitoring-server] => (item=Server3) => {
-    "msg": "Hello Server3"
-}
-2024-10-02 11:42:42,948 p=24109 u=root n=ansible | PLAY RECAP ******************************************************************************************************************
-2024-10-02 11:42:42,948 p=24109 u=root n=ansible | monitoring-server          : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-02 11:49:04,244 p=24755 u=root n=ansible | PLAY [monitoring-server] ****************************************************************************************************
-2024-10-02 11:49:04,254 p=24755 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************
-2024-10-02 11:49:07,033 p=24755 u=root n=ansible | ok: [monitoring-server]
-2024-10-02 11:49:07,052 p=24755 u=root n=ansible | TASK [Loop] *****************************************************************************************************************
-2024-10-02 11:49:07,080 p=24755 u=root n=ansible | ok: [monitoring-server] => (item=1) => {
-    "msg": "Hello 1"
-}
-2024-10-02 11:49:07,085 p=24755 u=root n=ansible | ok: [monitoring-server] => (item=2) => {
-    "msg": "Hello 2"
-}
-2024-10-02 11:49:07,090 p=24755 u=root n=ansible | ok: [monitoring-server] => (item=3) => {
-    "msg": "Hello 3"
-}
-2024-10-02 11:49:07,119 p=24755 u=root n=ansible | TASK [Loop Until] ***********************************************************************************************************
-2024-10-02 11:49:14,686 p=24755 u=root n=ansible | changed: [monitoring-server]
-2024-10-02 11:49:14,703 p=24755 u=root n=ansible | TASK [Print output] *********************************************************************************************************
-2024-10-02 11:49:14,733 p=24755 u=root n=ansible | ok: [monitoring-server] => {
-    "output.stdout": "ZZZZ"
-}
-2024-10-02 11:49:14,756 p=24755 u=root n=ansible | PLAY RECAP ******************************************************************************************************************
-2024-10-02 11:49:14,757 p=24755 u=root n=ansible | monitoring-server          : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-02 12:11:36,829 p=26924 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] **************************************************************
-2024-10-02 12:11:36,851 p=26924 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************
-2024-10-02 12:11:39,315 p=26924 u=root n=ansible | ok: [proxy-server]
-2024-10-02 12:11:39,340 p=26924 u=root n=ansible | ok: [monitoring-server]
-2024-10-02 12:11:40,046 p=26924 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-02 12:11:40,070 p=26924 u=root n=ansible | TASK [List controlled servers] **********************************************************************************************
-2024-10-02 12:11:40,097 p=26924 u=root n=ansible | ok: [proxy-server] => {
+2024-10-06 18:43:24,254 p=4134 u=root n=ansible | PLAY [Test Connection to servers] ******************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:43:24,287 p=4134 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:43:24,495 p=4134 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '[192.168.140.137]:2424' (ECDSA) to the list of known hosts.\r\nansible@192.168.140.137: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2024-10-06 18:43:26,522 p=4134 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:43:27,422 p=4134 u=root n=ansible | fatal: [monitoring-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.138 port 2424: No route to host", "unreachable": true}
+2024-10-06 18:43:27,441 p=4134 u=root n=ansible | TASK [Ping servers] ********************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:43:28,258 p=4134 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:43:28,282 p=4134 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:43:28,283 p=4134 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:43:28,283 p=4134 u=root n=ansible | monitoring-server          : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:43:28,283 p=4134 u=root n=ansible | proxy-server               : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:52:27,230 p=4598 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] *************************************************************************************************************************************************************************************************************
+2024-10-06 18:52:27,250 p=4598 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:52:27,679 p=4598 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ansible@192.168.140.137: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2024-10-06 18:52:29,883 p=4598 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:52:30,406 p=4598 u=root n=ansible | fatal: [monitoring-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.138 port 2424: No route to host", "unreachable": true}
+2024-10-06 18:52:30,515 p=4598 u=root n=ansible | TASK [List controlled servers] *********************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:52:30,549 p=4598 u=root n=ansible | ok: [proxy-server] => {
     "ansible_os_family": "RedHat"
 }
-2024-10-02 12:11:40,106 p=26924 u=root n=ansible | ok: [monitoring-server] => {
-    "ansible_os_family": "Debian"
+2024-10-06 18:52:30,560 p=4598 u=root n=ansible | TASK [Install Apache Web Server for Debian] ********************************************************************************************************************************************************************************************************************************
+2024-10-06 18:52:30,594 p=4598 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:52:30,621 p=4598 u=root n=ansible | TASK [Start Web Server and enable on boot [Debian]] ************************************************************************************************************************************************************************************************************************
+2024-10-06 18:52:30,660 p=4598 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:52:30,676 p=4598 u=root n=ansible | TASK [Generate INDEX.HTML file] ********************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:52:30,985 p=4598 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible.errors.AnsibleUndefinedVariable: 'ansible_os_hostname' is undefined. 'ansible_os_hostname' is undefined
+2024-10-06 18:52:30,986 p=4598 u=root n=ansible | fatal: [proxy-server]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'ansible_os_hostname' is undefined. 'ansible_os_hostname' is undefined"}
+2024-10-06 18:52:30,987 p=4598 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:52:30,987 p=4598 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:52:30,988 p=4598 u=root n=ansible | monitoring-server          : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:52:30,988 p=4598 u=root n=ansible | proxy-server               : ok=2    changed=0    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2024-10-06 18:52:53,891 p=4634 u=root n=ansible | proxy-server | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "192.168.140.139"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "fe80::20c:29ff:fe53:fa5e"
+        ],
+        "ansible_apparmor": {
+            "status": "disabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "11/12/2020",
+        "ansible_bios_vendor": "Phoenix Technologies LTD",
+        "ansible_bios_version": "6.00",
+        "ansible_board_asset_tag": "NA",
+        "ansible_board_name": "440BX Desktop Reference Platform",
+        "ansible_board_serial": "None",
+        "ansible_board_vendor": "Intel Corporation",
+        "ansible_board_version": "None",
+        "ansible_chassis_asset_tag": "No Asset Tag",
+        "ansible_chassis_serial": "None",
+        "ansible_chassis_vendor": "No Enclosure",
+        "ansible_chassis_version": "N/A",
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "(hd0,msdos1)/vmlinuz-4.18.0-553.16.1.el8_10.x86_64",
+            "crashkernel": "auto",
+            "quiet": true,
+            "rd.lvm.lv": "rl_proxy-server/swap",
+            "resume": "/dev/mapper/rl_proxy--server-swap",
+            "rhgb": true,
+            "ro": true,
+            "root": "/dev/mapper/rl_proxy--server-root"
+        },
+        "ansible_date_time": {
+            "date": "2024-10-06",
+            "day": "06",
+            "epoch": "1728229973",
+            "epoch_int": "1728229973",
+            "hour": "18",
+            "iso8601": "2024-10-06T15:52:53Z",
+            "iso8601_basic": "20241006T185253309538",
+            "iso8601_basic_short": "20241006T185253",
+            "iso8601_micro": "2024-10-06T15:52:53.309538Z",
+            "minute": "52",
+            "month": "10",
+            "second": "53",
+            "time": "18:52:53",
+            "tz": "MSK",
+            "tz_dst": "MSK",
+            "tz_offset": "+0300",
+            "weekday": "Sunday",
+            "weekday_number": "0",
+            "weeknumber": "40",
+            "year": "2024"
+        },
+        "ansible_default_ipv4": {
+            "address": "192.168.140.139",
+            "alias": "ens160",
+            "broadcast": "192.168.140.255",
+            "gateway": "192.168.140.2",
+            "interface": "ens160",
+            "macaddress": "00:0c:29:53:fa:5e",
+            "mtu": 1500,
+            "netmask": "255.255.255.0",
+            "network": "192.168.140.0",
+            "prefix": "24",
+            "type": "ether"
+        },
+        "ansible_default_ipv6": {},
+        "ansible_device_links": {
+            "ids": {
+                "dm-0": [
+                    "dm-name-rl_proxy--server-root",
+                    "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUvoyqQeXuBufc49HxLJW7tn0Wso1pYAHAs"
+                ],
+                "dm-1": [
+                    "dm-name-rl_proxy--server-swap",
+                    "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUv3N5at0tpgk2ejR6Q9WKxOsVa2ON1zalw"
+                ],
+                "nvme0n1": [
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926"
+                ],
+                "nvme0n1p1": [
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part1",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926-part1",
+                    "wwn-eui.1753d1bba0d3d433000c296d28d11926-part1"
+                ],
+                "nvme0n1p2": [
+                    "lvm-pv-uuid-Jk0CQA-rQFB-JdsK-klM3-aEaV-218U-eNfBCU",
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part2",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926-part2",
+                    "wwn-eui.1753d1bba0d3d433000c296d28d11926-part2"
+                ],
+                "sr0": [
+                    "ata-VMware_Virtual_IDE_CDROM_Drive_10000000000000000001"
+                ]
+            },
+            "labels": {
+                "sr0": [
+                    "Rocky-8-10-x86_64-dvd"
+                ]
+            },
+            "masters": {
+                "nvme0n1p2": [
+                    "dm-0",
+                    "dm-1"
+                ]
+            },
+            "uuids": {
+                "dm-0": [
+                    "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+                ],
+                "dm-1": [
+                    "4ef96ba7-e14f-4bbd-8f2d-8df1ad69f796"
+                ],
+                "nvme0n1p1": [
+                    "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                ],
+                "sr0": [
+                    "2024-05-27-14-12-59-00"
+                ]
+            }
+        },
+        "ansible_devices": {
+            "dm-0": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-rl_proxy--server-root",
+                        "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUvoyqQeXuBufc49HxLJW7tn0Wso1pYAHAs"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "46088192",
+                "sectorsize": "512",
+                "size": "21.98 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "dm-1": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-rl_proxy--server-swap",
+                        "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUv3N5at0tpgk2ejR6Q9WKxOsVa2ON1zalw"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "4ef96ba7-e14f-4bbd-8f2d-8df1ad69f796"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "4235264",
+                "sectorsize": "512",
+                "size": "2.02 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "nvme0n1": {
+                "holders": [],
+                "host": "Non-Volatile memory controller: VMware NVMe SSD Controller",
+                "links": {
+                    "ids": [
+                        "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000",
+                        "nvme-eui.1753d1bba0d3d433000c296d28d11926"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": "VMware Virtual NVMe Disk",
+                "partitions": {
+                    "nvme0n1p1": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part1",
+                                "nvme-eui.1753d1bba0d3d433000c296d28d11926-part1",
+                                "wwn-eui.1753d1bba0d3d433000c296d28d11926-part1"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": [
+                                "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                            ]
+                        },
+                        "sectors": "2097152",
+                        "sectorsize": 512,
+                        "size": "1.00 GB",
+                        "start": "2048",
+                        "uuid": "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                    },
+                    "nvme0n1p2": {
+                        "holders": [
+                            "rl_proxy--server-swap",
+                            "rl_proxy--server-root"
+                        ],
+                        "links": {
+                            "ids": [
+                                "lvm-pv-uuid-Jk0CQA-rQFB-JdsK-klM3-aEaV-218U-eNfBCU",
+                                "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part2",
+                                "nvme-eui.1753d1bba0d3d433000c296d28d11926-part2",
+                                "wwn-eui.1753d1bba0d3d433000c296d28d11926-part2"
+                            ],
+                            "labels": [],
+                            "masters": [
+                                "dm-0",
+                                "dm-1"
+                            ],
+                            "uuids": []
+                        },
+                        "sectors": "50329600",
+                        "sectorsize": 512,
+                        "size": "24.00 GB",
+                        "start": "2099200",
+                        "uuid": null
+                    }
+                },
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "52428800",
+                "sectorsize": "512",
+                "serial": "VMware",
+                "size": "25.00 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "sr0": {
+                "holders": [],
+                "host": "IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)",
+                "links": {
+                    "ids": [
+                        "ata-VMware_Virtual_IDE_CDROM_Drive_10000000000000000001"
+                    ],
+                    "labels": [
+                        "Rocky-8-10-x86_64-dvd"
+                    ],
+                    "masters": [],
+                    "uuids": [
+                        "2024-05-27-14-12-59-00"
+                    ]
+                },
+                "model": "VMware IDE CDR10",
+                "partitions": {},
+                "removable": "1",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "27761408",
+                "sectorsize": "2048",
+                "size": "13.24 GB",
+                "support_discard": "0",
+                "vendor": "NECVMWar",
+                "virtual": 1
+            }
+        },
+        "ansible_distribution": "Rocky",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/redhat-release",
+        "ansible_distribution_file_variety": "RedHat",
+        "ansible_distribution_major_version": "8",
+        "ansible_distribution_release": "Green Obsidian",
+        "ansible_distribution_version": "8.10",
+        "ansible_dns": {
+            "nameservers": [
+                "192.168.140.2"
+            ],
+            "search": [
+                "localdomain"
+            ]
+        },
+        "ansible_domain": "localdomain",
+        "ansible_effective_group_id": 0,
+        "ansible_effective_user_id": 0,
+        "ansible_ens160": {
+            "active": true,
+            "device": "ens160",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "on",
+                "loopback": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "off [fixed]",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "192.168.140.139",
+                "broadcast": "192.168.140.255",
+                "netmask": "255.255.255.0",
+                "network": "192.168.140.0",
+                "prefix": "24"
+            },
+            "ipv6": [
+                {
+                    "address": "fe80::20c:29ff:fe53:fa5e",
+                    "prefix": "64",
+                    "scope": "link"
+                }
+            ],
+            "macaddress": "00:0c:29:53:fa:5e",
+            "module": "vmxnet3",
+            "mtu": 1500,
+            "pciid": "0000:03:00.0",
+            "promisc": false,
+            "speed": 10000,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_env": {
+            "HOME": "/root",
+            "LANG": "en_US.UTF-8",
+            "LOGNAME": "root",
+            "LS_COLORS": "rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;40:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.zst=38;5;9:*.tzst=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.wim=38;5;9:*.swm=38;5;9:*.dwm=38;5;9:*.esd=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.mjpg=38;5;13:*.mjpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.m4a=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.oga=38;5;45:*.opus=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:",
+            "MAIL": "/var/mail/root",
+            "PATH": "/sbin:/bin:/usr/sbin:/usr/bin",
+            "PWD": "/home/ansible",
+            "SHELL": "/bin/bash",
+            "SHLVL": "1",
+            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-bdvdhhfpvonkfcxgorhrylhhdiupkvom ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1728229972.165383-4637-147735432660832/AnsiballZ_setup.py",
+            "SUDO_GID": "1002",
+            "SUDO_UID": "1002",
+            "SUDO_USER": "ansible",
+            "TERM": "xterm-256color",
+            "USER": "root",
+            "_": "/usr/libexec/platform-python"
+        },
+        "ansible_fibre_channel_wwn": [],
+        "ansible_fips": false,
+        "ansible_form_factor": "Other",
+        "ansible_fqdn": "localhost.localdomain",
+        "ansible_hostname": "proxy-server",
+        "ansible_hostnqn": "nqn.2014-08.org.nvmexpress:uuid:f1104d56-6a32-bbe3-e4c0-44468a53fa5e",
+        "ansible_interfaces": [
+            "lo",
+            "ens160"
+        ],
+        "ansible_is_chroot": false,
+        "ansible_iscsi_iqn": "iqn.1994-05.com.redhat:2547f194c3fb",
+        "ansible_kernel": "4.18.0-553.16.1.el8_10.x86_64",
+        "ansible_kernel_version": "#1 SMP Thu Aug 8 17:47:08 UTC 2024",
+        "ansible_lo": {
+            "active": true,
+            "device": "lo",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "on [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on [fixed]",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "on",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off [fixed]",
+                "tx_scatter_gather": "on [fixed]",
+                "tx_scatter_gather_fraglist": "on [fixed]",
+                "tx_sctp_segmentation": "on",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "on [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "127.0.0.1",
+                "broadcast": "",
+                "netmask": "255.0.0.0",
+                "network": "127.0.0.0",
+                "prefix": "8"
+            },
+            "ipv6": [
+                {
+                    "address": "::1",
+                    "prefix": "128",
+                    "scope": "host"
+                }
+            ],
+            "mtu": 65536,
+            "promisc": false,
+            "timestamping": [],
+            "type": "loopback"
+        },
+        "ansible_loadavg": {
+            "15m": 0.05,
+            "1m": 0.0,
+            "5m": 0.01
+        },
+        "ansible_local": {},
+        "ansible_locally_reachable_ips": {
+            "ipv4": [
+                "127.0.0.0/8",
+                "127.0.0.1",
+                "192.168.140.139"
+            ],
+            "ipv6": [
+                "::1",
+                "fe80::20c:29ff:fe53:fa5e"
+            ]
+        },
+        "ansible_lsb": {},
+        "ansible_lvm": {
+            "lvs": {
+                "root": {
+                    "size_g": "21.98",
+                    "vg": "rl_proxy-server"
+                },
+                "swap": {
+                    "size_g": "2.02",
+                    "vg": "rl_proxy-server"
+                }
+            },
+            "pvs": {
+                "/dev/nvme0n1p2": {
+                    "free_g": "0",
+                    "size_g": "24.00",
+                    "vg": "rl_proxy-server"
+                }
+            },
+            "vgs": {
+                "rl_proxy-server": {
+                    "free_g": "0",
+                    "num_lvs": "2",
+                    "num_pvs": "1",
+                    "size_g": "24.00"
+                }
+            }
+        },
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "f297069fa39a400eb5aef430611bf944",
+        "ansible_memfree_mb": 1077,
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 1358,
+                "used": 388
+            },
+            "real": {
+                "free": 1077,
+                "total": 1746,
+                "used": 669
+            },
+            "swap": {
+                "cached": 0,
+                "free": 2067,
+                "total": 2067,
+                "used": 0
+            }
+        },
+        "ansible_memtotal_mb": 1746,
+        "ansible_mounts": [
+            {
+                "block_available": 4944476,
+                "block_size": 4096,
+                "block_total": 5758211,
+                "block_used": 813735,
+                "device": "/dev/mapper/rl_proxy--server-root",
+                "fstype": "xfs",
+                "inode_available": 11462854,
+                "inode_total": 11522048,
+                "inode_used": 59194,
+                "mount": "/",
+                "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
+                "size_available": 20252573696,
+                "size_total": 23585632256,
+                "uuid": "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+            },
+            {
+                "block_available": 183146,
+                "block_size": 4096,
+                "block_total": 259584,
+                "block_used": 76438,
+                "device": "/dev/nvme0n1p1",
+                "fstype": "xfs",
+                "inode_available": 523970,
+                "inode_total": 524288,
+                "inode_used": 318,
+                "mount": "/boot",
+                "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
+                "size_available": 750166016,
+                "size_total": 1063256064,
+                "uuid": "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+            }
+        ],
+        "ansible_nodename": "proxy-server",
+        "ansible_os_family": "RedHat",
+        "ansible_pkg_mgr": "dnf",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "(hd0,msdos1)/vmlinuz-4.18.0-553.16.1.el8_10.x86_64",
+            "crashkernel": "auto",
+            "quiet": true,
+            "rd.lvm.lv": [
+                "rl_proxy-server/root",
+                "rl_proxy-server/swap"
+            ],
+            "resume": "/dev/mapper/rl_proxy--server-swap",
+            "rhgb": true,
+            "ro": true,
+            "root": "/dev/mapper/rl_proxy--server-root"
+        },
+        "ansible_processor": [
+            "0",
+            "GenuineIntel",
+            "Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz"
+        ],
+        "ansible_processor_cores": 1,
+        "ansible_processor_count": 1,
+        "ansible_processor_nproc": 1,
+        "ansible_processor_threads_per_core": 1,
+        "ansible_processor_vcpus": 1,
+        "ansible_product_name": "VMware Virtual Platform",
+        "ansible_product_serial": "VMware-56 4d 10 f1 32 6a e3 bb-e4 c0 44 46 8a 53 fa 5e",
+        "ansible_product_uuid": "f1104d56-6a32-bbe3-e4c0-44468a53fa5e",
+        "ansible_product_version": "None",
+        "ansible_python": {
+            "executable": "/usr/libexec/platform-python",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 8,
+                "minor": 6,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                6,
+                8,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.6.8",
+        "ansible_real_group_id": 0,
+        "ansible_real_user_id": 0,
+        "ansible_selinux": {
+            "config_mode": "enforcing",
+            "mode": "enforcing",
+            "policyvers": 33,
+            "status": "enabled",
+            "type": "targeted"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBN4O0bhOsva24XE7PdRjgKCn4xx/+gsWpIZJTCb8Vy7jKmMgjw9QqeulLMPmg2r+t1bFt9tymZ7AXzxI5ynvm9w=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIKTlookN44Tdw8wpI+SZby6ZkBONF/LSK7gc0/P0tHvu",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDFcXHjhp5JLy+m/URzwYUjWPrlJiNPdOSLnCk3ioQplbfps5vsJ1aJKnXrIbPrnsl6qSwWthM93HE0ksMTJ+zJOejh5xMueD73wjxTHl3FEO3bxM8IBNdzbG8XO8PmcAzrbVpj7gtSoRPdl9DyFJsZ43alJJTvz0Zlx5dbJlA3SU+ROEvMs9NRJRBEWglsC8i5in2vBUylOTivgSdGynDtUGHrPFHeBpMrlBIXr43NnMhZBssAPnsC4321YtEnNcSCUv9RaiRn1FZ4rm1fwyq++ND8K8xoiSUIezUbkuRw7wzipZTcXhdVvIp0kJyL5QfnPFZRPBMF9gCmRaypx4vl83LYsw/fNdT+FqSaIzsUUBuYmuNiFbt7PeFcpGCQrhR//H0Jp7W9R17CHg0vCJ6OEXgva3AAaHsbGuzMxgTUmFb1CeeKGL1/+a4Sd05M3+cVTQYHErnvtFvqpicawjOk0lAXwHRnavorQr4jLHjI7AOGwJT39lgwibhtLKNIhVE=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_swapfree_mb": 2067,
+        "ansible_swaptotal_mb": 2067,
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [],
+        "ansible_system_capabilities_enforced": "False",
+        "ansible_system_vendor": "VMware, Inc.",
+        "ansible_uptime_seconds": 2092,
+        "ansible_user_dir": "/root",
+        "ansible_user_gecos": "root",
+        "ansible_user_gid": 0,
+        "ansible_user_id": "root",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 0,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virtualization_role": "guest",
+        "ansible_virtualization_tech_guest": [
+            "VMware"
+        ],
+        "ansible_virtualization_tech_host": [],
+        "ansible_virtualization_type": "VMware",
+        "discovered_interpreter_python": "/usr/libexec/platform-python",
+        "gather_subset": [
+            "all"
+        ],
+        "module_setup": true
+    },
+    "changed": false
 }
-2024-10-02 12:11:40,113 p=26924 u=root n=ansible | TASK [Install Apache Web Server for Debian] *********************************************************************************
-2024-10-02 12:11:40,139 p=26924 u=root n=ansible | skipping: [proxy-server]
-2024-10-02 12:11:41,689 p=26924 u=root n=ansible | ok: [monitoring-server]
-2024-10-02 12:11:41,696 p=26924 u=root n=ansible | TASK [Start Web Server and enable on boot [Debian]] *************************************************************************
-2024-10-02 12:11:41,718 p=26924 u=root n=ansible | skipping: [proxy-server]
-2024-10-02 12:11:42,639 p=26924 u=root n=ansible | ok: [monitoring-server]
-2024-10-02 12:11:42,646 p=26924 u=root n=ansible | TASK [Install Apache Web Server for RedHat] *********************************************************************************
-2024-10-02 12:11:42,684 p=26924 u=root n=ansible | skipping: [monitoring-server]
-2024-10-02 12:11:44,966 p=26924 u=root n=ansible | ok: [proxy-server]
-2024-10-02 12:11:44,972 p=26924 u=root n=ansible | TASK [Start Web Server and enable on boot [RedHat]] *************************************************************************
-2024-10-02 12:11:45,005 p=26924 u=root n=ansible | skipping: [monitoring-server]
-2024-10-02 12:11:45,785 p=26924 u=root n=ansible | ok: [proxy-server]
-2024-10-02 12:11:45,792 p=26924 u=root n=ansible | TASK [Copy web page to Web Server] ******************************************************************************************
-2024-10-02 12:11:47,190 p=26924 u=root n=ansible | changed: [monitoring-server] => (item=index.html)
-2024-10-02 12:11:47,547 p=26924 u=root n=ansible | changed: [proxy-server] => (item=index.html)
-2024-10-02 12:11:48,317 p=26924 u=root n=ansible | changed: [monitoring-server] => (item=styles.css)
-2024-10-02 12:11:49,260 p=26924 u=root n=ansible | changed: [proxy-server] => (item=styles.css)
-2024-10-02 12:11:49,287 p=26924 u=root n=ansible | RUNNING HANDLER [Restart Apache on Debian] **********************************************************************************
-2024-10-02 12:11:49,314 p=26924 u=root n=ansible | skipping: [proxy-server]
-2024-10-02 12:11:49,994 p=26924 u=root n=ansible | changed: [monitoring-server]
-2024-10-02 12:11:50,001 p=26924 u=root n=ansible | RUNNING HANDLER [Restart Apache on RedHat] **********************************************************************************
-2024-10-02 12:11:50,040 p=26924 u=root n=ansible | skipping: [monitoring-server]
-2024-10-02 12:11:51,954 p=26924 u=root n=ansible | changed: [proxy-server]
-2024-10-02 12:11:51,977 p=26924 u=root n=ansible | PLAY RECAP ******************************************************************************************************************
-2024-10-02 12:11:51,977 p=26924 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-02 12:11:51,977 p=26924 u=root n=ansible | monitoring-server          : ok=6    changed=2    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
-2024-10-02 12:11:51,978 p=26924 u=root n=ansible | proxy-server               : ok=6    changed=2    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
-2024-10-02 12:35:11,177 p=29361 u=root n=ansible | ERROR! the playbook: install_apache_pb_loop.yml could not be found
-2024-10-02 12:35:21,977 p=29380 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] **************************************************************
-2024-10-02 12:35:21,989 p=29380 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************
-2024-10-02 12:35:24,362 p=29380 u=root n=ansible | ok: [proxy-server]
-2024-10-02 12:35:24,446 p=29380 u=root n=ansible | ok: [monitoring-server]
-2024-10-02 12:35:25,133 p=29380 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.137 port 2424: No route to host", "unreachable": true}
-2024-10-02 12:35:25,158 p=29380 u=root n=ansible | TASK [List controlled servers] **********************************************************************************************
-2024-10-02 12:35:25,187 p=29380 u=root n=ansible | ok: [proxy-server] => {
+2024-10-06 18:53:10,364 p=4659 u=root n=ansible | proxy-server | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "192.168.140.139"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "fe80::20c:29ff:fe53:fa5e"
+        ],
+        "ansible_apparmor": {
+            "status": "disabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "11/12/2020",
+        "ansible_bios_vendor": "Phoenix Technologies LTD",
+        "ansible_bios_version": "6.00",
+        "ansible_board_asset_tag": "NA",
+        "ansible_board_name": "440BX Desktop Reference Platform",
+        "ansible_board_serial": "None",
+        "ansible_board_vendor": "Intel Corporation",
+        "ansible_board_version": "None",
+        "ansible_chassis_asset_tag": "No Asset Tag",
+        "ansible_chassis_serial": "None",
+        "ansible_chassis_vendor": "No Enclosure",
+        "ansible_chassis_version": "N/A",
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "(hd0,msdos1)/vmlinuz-4.18.0-553.16.1.el8_10.x86_64",
+            "crashkernel": "auto",
+            "quiet": true,
+            "rd.lvm.lv": "rl_proxy-server/swap",
+            "resume": "/dev/mapper/rl_proxy--server-swap",
+            "rhgb": true,
+            "ro": true,
+            "root": "/dev/mapper/rl_proxy--server-root"
+        },
+        "ansible_date_time": {
+            "date": "2024-10-06",
+            "day": "06",
+            "epoch": "1728229990",
+            "epoch_int": "1728229990",
+            "hour": "18",
+            "iso8601": "2024-10-06T15:53:10Z",
+            "iso8601_basic": "20241006T185310244940",
+            "iso8601_basic_short": "20241006T185310",
+            "iso8601_micro": "2024-10-06T15:53:10.244940Z",
+            "minute": "53",
+            "month": "10",
+            "second": "10",
+            "time": "18:53:10",
+            "tz": "MSK",
+            "tz_dst": "MSK",
+            "tz_offset": "+0300",
+            "weekday": "Sunday",
+            "weekday_number": "0",
+            "weeknumber": "40",
+            "year": "2024"
+        },
+        "ansible_default_ipv4": {
+            "address": "192.168.140.139",
+            "alias": "ens160",
+            "broadcast": "192.168.140.255",
+            "gateway": "192.168.140.2",
+            "interface": "ens160",
+            "macaddress": "00:0c:29:53:fa:5e",
+            "mtu": 1500,
+            "netmask": "255.255.255.0",
+            "network": "192.168.140.0",
+            "prefix": "24",
+            "type": "ether"
+        },
+        "ansible_default_ipv6": {},
+        "ansible_device_links": {
+            "ids": {
+                "dm-0": [
+                    "dm-name-rl_proxy--server-root",
+                    "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUvoyqQeXuBufc49HxLJW7tn0Wso1pYAHAs"
+                ],
+                "dm-1": [
+                    "dm-name-rl_proxy--server-swap",
+                    "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUv3N5at0tpgk2ejR6Q9WKxOsVa2ON1zalw"
+                ],
+                "nvme0n1": [
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926"
+                ],
+                "nvme0n1p1": [
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part1",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926-part1",
+                    "wwn-eui.1753d1bba0d3d433000c296d28d11926-part1"
+                ],
+                "nvme0n1p2": [
+                    "lvm-pv-uuid-Jk0CQA-rQFB-JdsK-klM3-aEaV-218U-eNfBCU",
+                    "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part2",
+                    "nvme-eui.1753d1bba0d3d433000c296d28d11926-part2",
+                    "wwn-eui.1753d1bba0d3d433000c296d28d11926-part2"
+                ],
+                "sr0": [
+                    "ata-VMware_Virtual_IDE_CDROM_Drive_10000000000000000001"
+                ]
+            },
+            "labels": {
+                "sr0": [
+                    "Rocky-8-10-x86_64-dvd"
+                ]
+            },
+            "masters": {
+                "nvme0n1p2": [
+                    "dm-0",
+                    "dm-1"
+                ]
+            },
+            "uuids": {
+                "dm-0": [
+                    "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+                ],
+                "dm-1": [
+                    "4ef96ba7-e14f-4bbd-8f2d-8df1ad69f796"
+                ],
+                "nvme0n1p1": [
+                    "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                ],
+                "sr0": [
+                    "2024-05-27-14-12-59-00"
+                ]
+            }
+        },
+        "ansible_devices": {
+            "dm-0": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-rl_proxy--server-root",
+                        "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUvoyqQeXuBufc49HxLJW7tn0Wso1pYAHAs"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "46088192",
+                "sectorsize": "512",
+                "size": "21.98 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "dm-1": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-rl_proxy--server-swap",
+                        "dm-uuid-LVM-mT2q1JF8w2tp1YMdygaeTto7WERbudUv3N5at0tpgk2ejR6Q9WKxOsVa2ON1zalw"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "4ef96ba7-e14f-4bbd-8f2d-8df1ad69f796"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "4235264",
+                "sectorsize": "512",
+                "size": "2.02 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "nvme0n1": {
+                "holders": [],
+                "host": "Non-Volatile memory controller: VMware NVMe SSD Controller",
+                "links": {
+                    "ids": [
+                        "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000",
+                        "nvme-eui.1753d1bba0d3d433000c296d28d11926"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": "VMware Virtual NVMe Disk",
+                "partitions": {
+                    "nvme0n1p1": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part1",
+                                "nvme-eui.1753d1bba0d3d433000c296d28d11926-part1",
+                                "wwn-eui.1753d1bba0d3d433000c296d28d11926-part1"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": [
+                                "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                            ]
+                        },
+                        "sectors": "2097152",
+                        "sectorsize": 512,
+                        "size": "1.00 GB",
+                        "start": "2048",
+                        "uuid": "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+                    },
+                    "nvme0n1p2": {
+                        "holders": [
+                            "rl_proxy--server-swap",
+                            "rl_proxy--server-root"
+                        ],
+                        "links": {
+                            "ids": [
+                                "lvm-pv-uuid-Jk0CQA-rQFB-JdsK-klM3-aEaV-218U-eNfBCU",
+                                "nvme-VMware_Virtual_NVMe_Disk_VMware_NVME_0000-part2",
+                                "nvme-eui.1753d1bba0d3d433000c296d28d11926-part2",
+                                "wwn-eui.1753d1bba0d3d433000c296d28d11926-part2"
+                            ],
+                            "labels": [],
+                            "masters": [
+                                "dm-0",
+                                "dm-1"
+                            ],
+                            "uuids": []
+                        },
+                        "sectors": "50329600",
+                        "sectorsize": 512,
+                        "size": "24.00 GB",
+                        "start": "2099200",
+                        "uuid": null
+                    }
+                },
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "52428800",
+                "sectorsize": "512",
+                "serial": "VMware",
+                "size": "25.00 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "sr0": {
+                "holders": [],
+                "host": "IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)",
+                "links": {
+                    "ids": [
+                        "ata-VMware_Virtual_IDE_CDROM_Drive_10000000000000000001"
+                    ],
+                    "labels": [
+                        "Rocky-8-10-x86_64-dvd"
+                    ],
+                    "masters": [],
+                    "uuids": [
+                        "2024-05-27-14-12-59-00"
+                    ]
+                },
+                "model": "VMware IDE CDR10",
+                "partitions": {},
+                "removable": "1",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "27761408",
+                "sectorsize": "2048",
+                "size": "13.24 GB",
+                "support_discard": "0",
+                "vendor": "NECVMWar",
+                "virtual": 1
+            }
+        },
+        "ansible_distribution": "Rocky",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/redhat-release",
+        "ansible_distribution_file_variety": "RedHat",
+        "ansible_distribution_major_version": "8",
+        "ansible_distribution_release": "Green Obsidian",
+        "ansible_distribution_version": "8.10",
+        "ansible_dns": {
+            "nameservers": [
+                "192.168.140.2"
+            ],
+            "search": [
+                "localdomain"
+            ]
+        },
+        "ansible_domain": "localdomain",
+        "ansible_effective_group_id": 0,
+        "ansible_effective_user_id": 0,
+        "ansible_ens160": {
+            "active": true,
+            "device": "ens160",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "on",
+                "loopback": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "off [fixed]",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "192.168.140.139",
+                "broadcast": "192.168.140.255",
+                "netmask": "255.255.255.0",
+                "network": "192.168.140.0",
+                "prefix": "24"
+            },
+            "ipv6": [
+                {
+                    "address": "fe80::20c:29ff:fe53:fa5e",
+                    "prefix": "64",
+                    "scope": "link"
+                }
+            ],
+            "macaddress": "00:0c:29:53:fa:5e",
+            "module": "vmxnet3",
+            "mtu": 1500,
+            "pciid": "0000:03:00.0",
+            "promisc": false,
+            "speed": 10000,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_env": {
+            "HOME": "/root",
+            "LANG": "en_US.UTF-8",
+            "LOGNAME": "root",
+            "LS_COLORS": "rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;40:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.zst=38;5;9:*.tzst=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.wim=38;5;9:*.swm=38;5;9:*.dwm=38;5;9:*.esd=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.mjpg=38;5;13:*.mjpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.m4a=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.oga=38;5;45:*.opus=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:",
+            "MAIL": "/var/mail/root",
+            "PATH": "/sbin:/bin:/usr/sbin:/usr/bin",
+            "PWD": "/home/ansible",
+            "SHELL": "/bin/bash",
+            "SHLVL": "1",
+            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-gavyvynfbtzixfnztkjhwbmwsbyyaiby ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1728229988.6423178-4664-14441893928494/AnsiballZ_setup.py",
+            "SUDO_GID": "1002",
+            "SUDO_UID": "1002",
+            "SUDO_USER": "ansible",
+            "TERM": "xterm-256color",
+            "USER": "root",
+            "_": "/usr/libexec/platform-python"
+        },
+        "ansible_fibre_channel_wwn": [],
+        "ansible_fips": false,
+        "ansible_form_factor": "Other",
+        "ansible_fqdn": "localhost.localdomain",
+        "ansible_hostname": "proxy-server",
+        "ansible_hostnqn": "nqn.2014-08.org.nvmexpress:uuid:f1104d56-6a32-bbe3-e4c0-44468a53fa5e",
+        "ansible_interfaces": [
+            "ens160",
+            "lo"
+        ],
+        "ansible_is_chroot": false,
+        "ansible_iscsi_iqn": "iqn.1994-05.com.redhat:2547f194c3fb",
+        "ansible_kernel": "4.18.0-553.16.1.el8_10.x86_64",
+        "ansible_kernel_version": "#1 SMP Thu Aug 8 17:47:08 UTC 2024",
+        "ansible_lo": {
+            "active": true,
+            "device": "lo",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "on [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on [fixed]",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "on",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off [fixed]",
+                "tx_scatter_gather": "on [fixed]",
+                "tx_scatter_gather_fraglist": "on [fixed]",
+                "tx_sctp_segmentation": "on",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "on [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "127.0.0.1",
+                "broadcast": "",
+                "netmask": "255.0.0.0",
+                "network": "127.0.0.0",
+                "prefix": "8"
+            },
+            "ipv6": [
+                {
+                    "address": "::1",
+                    "prefix": "128",
+                    "scope": "host"
+                }
+            ],
+            "mtu": 65536,
+            "promisc": false,
+            "timestamping": [],
+            "type": "loopback"
+        },
+        "ansible_loadavg": {
+            "15m": 0.05,
+            "1m": 0.0,
+            "5m": 0.01
+        },
+        "ansible_local": {},
+        "ansible_locally_reachable_ips": {
+            "ipv4": [
+                "127.0.0.0/8",
+                "127.0.0.1",
+                "192.168.140.139"
+            ],
+            "ipv6": [
+                "::1",
+                "fe80::20c:29ff:fe53:fa5e"
+            ]
+        },
+        "ansible_lsb": {},
+        "ansible_lvm": {
+            "lvs": {
+                "root": {
+                    "size_g": "21.98",
+                    "vg": "rl_proxy-server"
+                },
+                "swap": {
+                    "size_g": "2.02",
+                    "vg": "rl_proxy-server"
+                }
+            },
+            "pvs": {
+                "/dev/nvme0n1p2": {
+                    "free_g": "0",
+                    "size_g": "24.00",
+                    "vg": "rl_proxy-server"
+                }
+            },
+            "vgs": {
+                "rl_proxy-server": {
+                    "free_g": "0",
+                    "num_lvs": "2",
+                    "num_pvs": "1",
+                    "size_g": "24.00"
+                }
+            }
+        },
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "f297069fa39a400eb5aef430611bf944",
+        "ansible_memfree_mb": 1076,
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 1357,
+                "used": 389
+            },
+            "real": {
+                "free": 1076,
+                "total": 1746,
+                "used": 670
+            },
+            "swap": {
+                "cached": 0,
+                "free": 2067,
+                "total": 2067,
+                "used": 0
+            }
+        },
+        "ansible_memtotal_mb": 1746,
+        "ansible_mounts": [
+            {
+                "block_available": 4944476,
+                "block_size": 4096,
+                "block_total": 5758211,
+                "block_used": 813735,
+                "device": "/dev/mapper/rl_proxy--server-root",
+                "fstype": "xfs",
+                "inode_available": 11462854,
+                "inode_total": 11522048,
+                "inode_used": 59194,
+                "mount": "/",
+                "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
+                "size_available": 20252573696,
+                "size_total": 23585632256,
+                "uuid": "cc94ccf8-a2c2-4203-b224-41eccabff4a7"
+            },
+            {
+                "block_available": 183146,
+                "block_size": 4096,
+                "block_total": 259584,
+                "block_used": 76438,
+                "device": "/dev/nvme0n1p1",
+                "fstype": "xfs",
+                "inode_available": 523970,
+                "inode_total": 524288,
+                "inode_used": 318,
+                "mount": "/boot",
+                "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
+                "size_available": 750166016,
+                "size_total": 1063256064,
+                "uuid": "4a1ea950-f34f-4468-93ab-c33fc204e9f9"
+            }
+        ],
+        "ansible_nodename": "proxy-server",
+        "ansible_os_family": "RedHat",
+        "ansible_pkg_mgr": "dnf",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "(hd0,msdos1)/vmlinuz-4.18.0-553.16.1.el8_10.x86_64",
+            "crashkernel": "auto",
+            "quiet": true,
+            "rd.lvm.lv": [
+                "rl_proxy-server/root",
+                "rl_proxy-server/swap"
+            ],
+            "resume": "/dev/mapper/rl_proxy--server-swap",
+            "rhgb": true,
+            "ro": true,
+            "root": "/dev/mapper/rl_proxy--server-root"
+        },
+        "ansible_processor": [
+            "0",
+            "GenuineIntel",
+            "Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz"
+        ],
+        "ansible_processor_cores": 1,
+        "ansible_processor_count": 1,
+        "ansible_processor_nproc": 1,
+        "ansible_processor_threads_per_core": 1,
+        "ansible_processor_vcpus": 1,
+        "ansible_product_name": "VMware Virtual Platform",
+        "ansible_product_serial": "VMware-56 4d 10 f1 32 6a e3 bb-e4 c0 44 46 8a 53 fa 5e",
+        "ansible_product_uuid": "f1104d56-6a32-bbe3-e4c0-44468a53fa5e",
+        "ansible_product_version": "None",
+        "ansible_python": {
+            "executable": "/usr/libexec/platform-python",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 8,
+                "minor": 6,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                6,
+                8,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.6.8",
+        "ansible_real_group_id": 0,
+        "ansible_real_user_id": 0,
+        "ansible_selinux": {
+            "config_mode": "enforcing",
+            "mode": "enforcing",
+            "policyvers": 33,
+            "status": "enabled",
+            "type": "targeted"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBN4O0bhOsva24XE7PdRjgKCn4xx/+gsWpIZJTCb8Vy7jKmMgjw9QqeulLMPmg2r+t1bFt9tymZ7AXzxI5ynvm9w=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIKTlookN44Tdw8wpI+SZby6ZkBONF/LSK7gc0/P0tHvu",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDFcXHjhp5JLy+m/URzwYUjWPrlJiNPdOSLnCk3ioQplbfps5vsJ1aJKnXrIbPrnsl6qSwWthM93HE0ksMTJ+zJOejh5xMueD73wjxTHl3FEO3bxM8IBNdzbG8XO8PmcAzrbVpj7gtSoRPdl9DyFJsZ43alJJTvz0Zlx5dbJlA3SU+ROEvMs9NRJRBEWglsC8i5in2vBUylOTivgSdGynDtUGHrPFHeBpMrlBIXr43NnMhZBssAPnsC4321YtEnNcSCUv9RaiRn1FZ4rm1fwyq++ND8K8xoiSUIezUbkuRw7wzipZTcXhdVvIp0kJyL5QfnPFZRPBMF9gCmRaypx4vl83LYsw/fNdT+FqSaIzsUUBuYmuNiFbt7PeFcpGCQrhR//H0Jp7W9R17CHg0vCJ6OEXgva3AAaHsbGuzMxgTUmFb1CeeKGL1/+a4Sd05M3+cVTQYHErnvtFvqpicawjOk0lAXwHRnavorQr4jLHjI7AOGwJT39lgwibhtLKNIhVE=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_swapfree_mb": 2067,
+        "ansible_swaptotal_mb": 2067,
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [],
+        "ansible_system_capabilities_enforced": "False",
+        "ansible_system_vendor": "VMware, Inc.",
+        "ansible_uptime_seconds": 2109,
+        "ansible_user_dir": "/root",
+        "ansible_user_gecos": "root",
+        "ansible_user_gid": 0,
+        "ansible_user_id": "root",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 0,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virtualization_role": "guest",
+        "ansible_virtualization_tech_guest": [
+            "VMware"
+        ],
+        "ansible_virtualization_tech_host": [],
+        "ansible_virtualization_type": "VMware",
+        "discovered_interpreter_python": "/usr/libexec/platform-python",
+        "gather_subset": [
+            "all"
+        ],
+        "module_setup": true
+    },
+    "changed": false
+}
+2024-10-06 18:53:41,363 p=4703 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] *************************************************************************************************************************************************************************************************************
+2024-10-06 18:53:41,374 p=4703 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:53:41,513 p=4703 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ansible@192.168.140.137: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2024-10-06 18:53:43,213 p=4703 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:53:44,510 p=4703 u=root n=ansible | fatal: [monitoring-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.138 port 2424: No route to host", "unreachable": true}
+2024-10-06 18:53:44,525 p=4703 u=root n=ansible | TASK [List controlled servers] *********************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:53:44,552 p=4703 u=root n=ansible | ok: [proxy-server] => {
     "ansible_os_family": "RedHat"
 }
-2024-10-02 12:35:25,198 p=29380 u=root n=ansible | ok: [monitoring-server] => {
-    "ansible_os_family": "Debian"
+2024-10-06 18:53:44,560 p=4703 u=root n=ansible | TASK [Install Apache Web Server for Debian] ********************************************************************************************************************************************************************************************************************************
+2024-10-06 18:53:44,583 p=4703 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:53:44,590 p=4703 u=root n=ansible | TASK [Start Web Server and enable on boot [Debian]] ************************************************************************************************************************************************************************************************************************
+2024-10-06 18:53:44,614 p=4703 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:53:44,621 p=4703 u=root n=ansible | TASK [Generate INDEX.HTML file] ********************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:53:44,829 p=4703 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible.errors.AnsibleUndefinedVariable: 'ipv4' is undefined. 'ipv4' is undefined
+2024-10-06 18:53:44,830 p=4703 u=root n=ansible | fatal: [proxy-server]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'ipv4' is undefined. 'ipv4' is undefined"}
+2024-10-06 18:53:44,831 p=4703 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:53:44,831 p=4703 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:53:44,832 p=4703 u=root n=ansible | monitoring-server          : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:53:44,832 p=4703 u=root n=ansible | proxy-server               : ok=2    changed=0    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2024-10-06 18:54:49,548 p=4776 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] *************************************************************************************************************************************************************************************************************
+2024-10-06 18:54:49,559 p=4776 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:54:49,701 p=4776 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ansible@192.168.140.137: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2024-10-06 18:54:51,577 p=4776 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:54:52,734 p=4776 u=root n=ansible | fatal: [monitoring-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.138 port 2424: No route to host", "unreachable": true}
+2024-10-06 18:54:52,748 p=4776 u=root n=ansible | TASK [List controlled servers] *********************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:54:52,778 p=4776 u=root n=ansible | ok: [proxy-server] => {
+    "ansible_os_family": "RedHat"
 }
-2024-10-02 12:35:25,204 p=29380 u=root n=ansible | TASK [Install Apache Web Server for Debian] *********************************************************************************
-2024-10-02 12:35:25,225 p=29380 u=root n=ansible | skipping: [proxy-server]
-2024-10-02 12:35:26,740 p=29380 u=root n=ansible | ok: [monitoring-server]
-2024-10-02 12:35:26,746 p=29380 u=root n=ansible | TASK [Start Web Server and enable on boot [Debian]] *************************************************************************
-2024-10-02 12:35:26,771 p=29380 u=root n=ansible | skipping: [proxy-server]
-2024-10-02 12:35:27,691 p=29380 u=root n=ansible | ok: [monitoring-server]
-2024-10-02 12:35:27,697 p=29380 u=root n=ansible | TASK [Install Apache Web Server for RedHat] *********************************************************************************
-2024-10-02 12:35:27,732 p=29380 u=root n=ansible | skipping: [monitoring-server]
-2024-10-02 12:35:29,977 p=29380 u=root n=ansible | ok: [proxy-server]
-2024-10-02 12:35:29,983 p=29380 u=root n=ansible | TASK [Start Web Server and enable on boot [RedHat]] *************************************************************************
-2024-10-02 12:35:30,023 p=29380 u=root n=ansible | skipping: [monitoring-server]
-2024-10-02 12:35:30,806 p=29380 u=root n=ansible | ok: [proxy-server]
-2024-10-02 12:35:30,813 p=29380 u=root n=ansible | TASK [Copy web page to Web Server] ******************************************************************************************
-2024-10-02 12:35:32,149 p=29380 u=root n=ansible | ok: [monitoring-server] => (item=/root/ansible/playbooks/files/./web_example/index.html)
-2024-10-02 12:35:32,434 p=29380 u=root n=ansible | ok: [proxy-server] => (item=/root/ansible/playbooks/files/./web_example/index.html)
-2024-10-02 12:35:33,202 p=29380 u=root n=ansible | ok: [monitoring-server] => (item=/root/ansible/playbooks/files/./web_example/styles.css)
-2024-10-02 12:35:34,024 p=29380 u=root n=ansible | ok: [proxy-server] => (item=/root/ansible/playbooks/files/./web_example/styles.css)
-2024-10-02 12:35:34,066 p=29380 u=root n=ansible | PLAY RECAP ******************************************************************************************************************
-2024-10-02 12:35:34,067 p=29380 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-2024-10-02 12:35:34,067 p=29380 u=root n=ansible | monitoring-server          : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
-2024-10-02 12:35:34,067 p=29380 u=root n=ansible | proxy-server               : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-10-06 18:54:52,787 p=4776 u=root n=ansible | TASK [Install Apache Web Server for Debian] ********************************************************************************************************************************************************************************************************************************
+2024-10-06 18:54:52,809 p=4776 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:54:52,819 p=4776 u=root n=ansible | TASK [Start Web Server and enable on boot [Debian]] ************************************************************************************************************************************************************************************************************************
+2024-10-06 18:54:52,841 p=4776 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:54:52,849 p=4776 u=root n=ansible | TASK [Generate INDEX.HTML file] ********************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:54:54,758 p=4776 u=root n=ansible | changed: [proxy-server]
+2024-10-06 18:54:54,766 p=4776 u=root n=ansible | TASK [Install Apache Web Server for RedHat] ********************************************************************************************************************************************************************************************************************************
+2024-10-06 18:55:21,563 p=4776 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:55:21,573 p=4776 u=root n=ansible | TASK [Start Web Server and enable on boot [RedHat]] ************************************************************************************************************************************************************************************************************************
+2024-10-06 18:55:23,004 p=4776 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:55:23,011 p=4776 u=root n=ansible | TASK [Copy web page to Web Server] *****************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:55:24,721 p=4776 u=root n=ansible | ok: [proxy-server] => (item=/root/ansible/./web_example/styles.css)
+2024-10-06 18:55:26,268 p=4776 u=root n=ansible | changed: [proxy-server] => (item=/root/ansible/./web_example/index.j2)
+2024-10-06 18:55:26,286 p=4776 u=root n=ansible | RUNNING HANDLER [Restart Apache on Debian] *********************************************************************************************************************************************************************************************************************************
+2024-10-06 18:55:26,307 p=4776 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:55:26,316 p=4776 u=root n=ansible | RUNNING HANDLER [Restart Apache on RedHat] *********************************************************************************************************************************************************************************************************************************
+2024-10-06 18:55:28,289 p=4776 u=root n=ansible | changed: [proxy-server]
+2024-10-06 18:55:28,302 p=4776 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:55:28,303 p=4776 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:55:28,303 p=4776 u=root n=ansible | monitoring-server          : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:55:28,303 p=4776 u=root n=ansible | proxy-server               : ok=7    changed=3    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2024-10-06 18:56:52,668 p=4960 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] *************************************************************************************************************************************************************************************************************
+2024-10-06 18:56:52,679 p=4960 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:56:52,816 p=4960 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ansible@192.168.140.137: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2024-10-06 18:56:54,872 p=4960 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:56:55,807 p=4960 u=root n=ansible | fatal: [monitoring-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.138 port 2424: No route to host", "unreachable": true}
+2024-10-06 18:56:55,821 p=4960 u=root n=ansible | TASK [List controlled servers] *********************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:56:55,851 p=4960 u=root n=ansible | ok: [proxy-server] => {
+    "ansible_os_family": "RedHat"
+}
+2024-10-06 18:56:55,858 p=4960 u=root n=ansible | TASK [Install Apache Web Server for Debian] ********************************************************************************************************************************************************************************************************************************
+2024-10-06 18:56:55,880 p=4960 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:56:55,893 p=4960 u=root n=ansible | TASK [Start Web Server and enable on boot [Debian]] ************************************************************************************************************************************************************************************************************************
+2024-10-06 18:56:55,925 p=4960 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 18:56:55,934 p=4960 u=root n=ansible | TASK [Generate INDEX.HTML file] ********************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:56:57,304 p=4960 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:56:57,312 p=4960 u=root n=ansible | TASK [Install Apache Web Server for RedHat] ********************************************************************************************************************************************************************************************************************************
+2024-10-06 18:56:59,736 p=4960 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:56:59,742 p=4960 u=root n=ansible | TASK [Start Web Server and enable on boot [RedHat]] ************************************************************************************************************************************************************************************************************************
+2024-10-06 18:57:00,912 p=4960 u=root n=ansible | ok: [proxy-server]
+2024-10-06 18:57:00,919 p=4960 u=root n=ansible | TASK [Copy web page to Web Server] *****************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:57:02,404 p=4960 u=root n=ansible | ok: [proxy-server] => (item=/root/ansible/./web_example/styles.css)
+2024-10-06 18:57:03,935 p=4960 u=root n=ansible | ok: [proxy-server] => (item=/root/ansible/./web_example/index.j2)
+2024-10-06 18:57:03,955 p=4960 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************
+2024-10-06 18:57:03,955 p=4960 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:57:03,955 p=4960 u=root n=ansible | monitoring-server          : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 18:57:03,955 p=4960 u=root n=ansible | proxy-server               : ok=6    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-10-06 19:14:56,488 p=5949 u=root n=ansible | proxy-server | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "msg": "This command has to be run under the root user.",
+    "results": []
+}
+2024-10-06 19:15:14,838 p=5977 u=root n=ansible | proxy-server | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Removed: httpd-2.4.37-65.module+el8.10.0+1842+4a9649e8.2.x86_64",
+        "Removed: mod_http2-1.15.7-10.module+el8.10.0+1830+22f0c9e0.x86_64"
+    ]
+}
+2024-10-06 19:15:23,042 p=6008 u=root n=ansible | proxy-server | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "msg": "Nothing to do",
+    "rc": 0,
+    "results": []
+}
+2024-10-06 19:15:40,285 p=6049 u=root n=ansible | ERROR! The tasks/main.yml file for role 'deploy_apache' must contain a list of tasks
+
+The error appears to be in '/root/ansible/roles/deploy_apache/tasks/main.yml': line 3, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+# tasks file for deploy_apache
+tasks:
+^ here
+
+2024-10-06 19:16:26,255 p=6109 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] *************************************************************************************************************************************************************************************************************
+2024-10-06 19:16:26,283 p=6109 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************
+2024-10-06 19:16:26,565 p=6109 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ansible@192.168.140.137: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2024-10-06 19:16:28,601 p=6109 u=root n=ansible | ok: [proxy-server]
+2024-10-06 19:16:29,512 p=6109 u=root n=ansible | fatal: [monitoring-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.138 port 2424: No route to host", "unreachable": true}
+2024-10-06 19:16:29,529 p=6109 u=root n=ansible | TASK [deploy_apache : List controlled servers] *****************************************************************************************************************************************************************************************************************************
+2024-10-06 19:16:29,564 p=6109 u=root n=ansible | ok: [proxy-server] => {
+    "ansible_os_family": "RedHat"
+}
+2024-10-06 19:16:29,574 p=6109 u=root n=ansible | TASK [deploy_apache : Install Apache Web Server for Debian] ****************************************************************************************************************************************************************************************************************
+2024-10-06 19:16:29,598 p=6109 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 19:16:29,610 p=6109 u=root n=ansible | TASK [deploy_apache : Start Web Server and enable on boot [Debian]] ********************************************************************************************************************************************************************************************************
+2024-10-06 19:16:29,632 p=6109 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 19:16:29,640 p=6109 u=root n=ansible | TASK [deploy_apache : Generate INDEX.HTML file] ****************************************************************************************************************************************************************************************************************************
+2024-10-06 19:16:29,902 p=6109 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2024-10-06 19:16:29,902 p=6109 u=root n=ansible | fatal: [proxy-server]: FAILED! => {"changed": false, "msg": "Could not find or access 'index.j2'\nSearched in:\n\t/root/ansible/roles/deploy_apache/templates/index.j2\n\t/root/ansible/roles/deploy_apache/index.j2\n\t/root/ansible/roles/deploy_apache/tasks/templates/index.j2\n\t/root/ansible/roles/deploy_apache/tasks/index.j2\n\t/root/ansible/templates/index.j2\n\t/root/ansible/index.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2024-10-06 19:16:29,904 p=6109 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************
+2024-10-06 19:16:29,904 p=6109 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 19:16:29,905 p=6109 u=root n=ansible | monitoring-server          : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 19:16:29,905 p=6109 u=root n=ansible | proxy-server               : ok=2    changed=0    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2024-10-06 19:17:32,659 p=6243 u=root n=ansible | PLAY [Install Apache and Upload web page to monitoring-server] *************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:32,679 p=6243 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:32,850 p=6243 u=root n=ansible | fatal: [app-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ansible@192.168.140.137: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).", "unreachable": true}
+2024-10-06 19:17:34,813 p=6243 u=root n=ansible | ok: [proxy-server]
+2024-10-06 19:17:35,871 p=6243 u=root n=ansible | fatal: [monitoring-server]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.140.138 port 2424: No route to host", "unreachable": true}
+2024-10-06 19:17:35,886 p=6243 u=root n=ansible | TASK [deploy_apache : List controlled servers] *****************************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:35,918 p=6243 u=root n=ansible | ok: [proxy-server] => {
+    "ansible_os_family": "RedHat"
+}
+2024-10-06 19:17:35,926 p=6243 u=root n=ansible | TASK [deploy_apache : Install Apache Web Server for Debian] ****************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:35,958 p=6243 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 19:17:35,969 p=6243 u=root n=ansible | TASK [deploy_apache : Start Web Server and enable on boot [Debian]] ********************************************************************************************************************************************************************************************************
+2024-10-06 19:17:35,989 p=6243 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 19:17:35,999 p=6243 u=root n=ansible | TASK [deploy_apache : Generate INDEX.HTML file] ****************************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:37,451 p=6243 u=root n=ansible | changed: [proxy-server]
+2024-10-06 19:17:37,459 p=6243 u=root n=ansible | TASK [deploy_apache : Install Apache Web Server for RedHat] ****************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:42,316 p=6243 u=root n=ansible | changed: [proxy-server]
+2024-10-06 19:17:42,325 p=6243 u=root n=ansible | TASK [deploy_apache : Start Web Server and enable on boot [RedHat]] ********************************************************************************************************************************************************************************************************
+2024-10-06 19:17:43,930 p=6243 u=root n=ansible | changed: [proxy-server]
+2024-10-06 19:17:43,938 p=6243 u=root n=ansible | TASK [deploy_apache : Copy web page to Web Server] *************************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:45,544 p=6243 u=root n=ansible | changed: [proxy-server] => (item=/root/ansible/roles/deploy_apache/README.md)
+2024-10-06 19:17:45,566 p=6243 u=root n=ansible | RUNNING HANDLER [deploy_apache : Restart Apache on Debian] *****************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:45,594 p=6243 u=root n=ansible | skipping: [proxy-server]
+2024-10-06 19:17:45,602 p=6243 u=root n=ansible | RUNNING HANDLER [deploy_apache : Restart Apache on RedHat] *****************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:47,579 p=6243 u=root n=ansible | changed: [proxy-server]
+2024-10-06 19:17:47,591 p=6243 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************
+2024-10-06 19:17:47,591 p=6243 u=root n=ansible | app-server                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 19:17:47,592 p=6243 u=root n=ansible | monitoring-server          : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-10-06 19:17:47,592 p=6243 u=root n=ansible | proxy-server               : ok=7    changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2024-10-06 19:25:44,790 p=6706 u=root n=ansible | proxy-server | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Removed: httpd-2.4.37-65.module+el8.10.0+1842+4a9649e8.2.x86_64",
+        "Removed: mod_http2-1.15.7-10.module+el8.10.0+1830+22f0c9e0.x86_64"
+    ]
+}

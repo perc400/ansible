@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apache Server [{{ ansible_hostname }}]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="center">
+        <div class="moving-text">{{ ansible_os_family }} | {{ ansible_default_ipv4.address }}</div>
+    </div>
+</body>
+</html>
