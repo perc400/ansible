@@ -1,0 +1,7 @@
+---
+- name: Install Docker, PostgreSQL Container, RabbitMQ Container, Publisher-service, Consumer-service
+  hosts: production_vm
+  become: yes
+
+  roles:
+    - { role: deploy_services, when: ansible_system == 'Linux' }

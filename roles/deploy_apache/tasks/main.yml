@@ -18,7 +18,7 @@
     - Restart Apache on Debian
     - Restart Apache on RedHat
 
-- block: # =========Debian Block=========
+- block: # =========RedHat Block=========
     - name: Install Apache Web Server for RedHat
       yum: name=httpd state=latest
 

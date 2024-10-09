@@ -1,0 +1,87 @@
+---
+# tasks file for deploy_services
+
+### Install docker on Debian and RedHat hosts
+- block:
+    - name: "Update the repository cache And Install ca-certificates, curl [Debian]"
+      apt:
+        update_cache: yes
+        name:
+          - ca-certificates
+          - curl
+        state: latest
+
+###sudo install -m 0755 -d /etc/apt/keyrings
+###sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+###sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    - name: "Create directory for keyrings [Debian]"
+      file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: '0755'
+
+    - name: "Download Docker GPG-key to /etc/apt/keyrings/docker.asc [Debian]"
+      uri:
+        url: 'https://download.docker.com/linux/ubuntu/gpg'
+        method: GET
+        dest: /etc/apt/keyrings/docker.asc
+        follow_redirects: safe
+
+    - name: "Ensure correct permissions for docker.asc [Debian]"
+      file:
+        path: /etc/apt/keyrings/docker.asc
+        mode: a+r
+
+    - name: "Install Docker [Debian]"
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: latest
+
+    - name: "Start Docker and enable on boot [Debian]"
+      service: name=docker state=started enabled=yes
+
+    - name: "Print Docker status [Debian]"
+      shell: "systemctl status docker"
+      register: docker_status
+      
+    - debug:
+        var: docker_status.stdout
+  when: ansible_os_family == "Debian"
+
+- block:
+    - name: "Add the Docker repo [RedHat]"
+      get_url:
+        url: https://download.docker.com/linux/rhel/docker-ce.repo
+        dest: /etc/yum.repos.d
+        mode: '0644'
+      
+    - name: "Install Docker [RedHat]"
+      dnf:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
+        state: latest
+
+    - name: "Start Docker and enable on boot [RedHat]"
+      service: name=docker state=started enabled=yes
+
+    - name: "Print Docker status [RedHat]"
+      shell: "systemctl status docker"
+      register: docker_status
+
+    - debug:
+        var: docker_status.stdout
+  when: ansible_os_family == "RedHat"
+
+### Pull images
+
+### Run containers
+
