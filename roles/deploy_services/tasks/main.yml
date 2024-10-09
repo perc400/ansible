@@ -81,7 +81,9 @@
         var: docker_status.stdout
   when: ansible_os_family == "RedHat"
 
-### Pull images
+### Login in private registry on infra-main
+
+### Pull images from private registry on infra-main
 
 ### Run containers
 
