@@ -56,15 +56,22 @@
         url: https://download.docker.com/linux/rhel/docker-ce.repo
         dest: /etc/yum.repos.d
         mode: '0644'
-      
+
+    - name: "Install Epel-release"
+      yum:
+        name:
+          - epel-release
+        state: latest      
+###--allowerasing
     - name: "Install Docker [RedHat]"
-      dnf:
+      yum:
         name:
           - docker-ce
           - docker-ce-cli
           - containerd.io
           - docker-compose-plugin
         state: latest
+        allowerasing: true
 
     - name: "Start Docker and enable on boot [RedHat]"
       service: name=docker state=started enabled=yes
@@ -76,6 +83,17 @@
     - debug:
         var: docker_status.stdout
   when: ansible_os_family == "RedHat"
+
+### Add insecure registry
+- name: "Add insecure registry"
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+
+- name: "Restart Docker Service"
+  service:
+    name: docker
+    state: restarted
 
 ### Login in private registry on infra-main
 - name: "Login in private docker.registry [192.168.140.136:5000]"
@@ -99,15 +117,20 @@
 - name: "Copy docker-compose.yml file"
   copy:
     src: docker-compose.yml
-    dest: ~
+    dest: ~/docker-compose.yml
+
+- name: "Copy docker-compose.yml file to /home/ansible"
+  copy:
+    src: docker-compose.yml
+    dest: /home/ansible/docker-compose.yml
 
 ### Run containers
 - name: "Run containers"
-  shell: "docker compose up -d"
+  shell: "docker compose -f ~/docker-compose.yml up -d"
 
 ### Docker ps
 - name: "List of running containers"
-  shell: "docker ps"
+  shell: "docker compose -f ~/docker-compose.yml ps"
   register: docker_ps_result
 
 - debug:

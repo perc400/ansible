@@ -1,2 +1,13 @@
 ---
 # handlers file for deploy_services
+- name: Restart Docker on RedHat
+  service:
+    name: docker
+    state: restarted
+  when: ansible_os_family == "RedHat"
+
+- name: Restart Docker on Debian
+  service:
+    name: docker
+    state: restarted
+  when: ansible_os_family == "Debian"
