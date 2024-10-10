@@ -1,2 +1,12 @@
 ---
 # defaults file for deploy_services
+###DOCKER.REGISTRY
+registry_password		: admin
+registry_user			: admin
+registry			: 192.168.140.136:5000
+###POSTGRESQL.CREDS
+postgres_user			: 1
+postgres_password		: 1
+postgres_connection		: 1
+###RABBITMQ.CREDS
+rabbitmq_host			: 1

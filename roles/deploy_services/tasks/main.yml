@@ -11,10 +11,6 @@
           - curl
         state: latest
 
-###sudo install -m 0755 -d /etc/apt/keyrings
-###sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-###sudo chmod a+r /etc/apt/keyrings/docker.asc
-
     - name: "Create directory for keyrings [Debian]"
       file:
         path: /etc/apt/keyrings
@@ -82,8 +78,37 @@
   when: ansible_os_family == "RedHat"
 
 ### Login in private registry on infra-main
+- name: "Login in private docker.registry [192.168.140.136:5000]"
+  docker_login:
+    registry_url: "{{ registry }}"
+    username: "{{ registry_user }}"
+    password: "{{ registry_password }}"
 
-### Pull images from private registry on infra-main
+- name: "Create directories for RabbitMQ and PostgreSQL volumes"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  with_items:
+    - /rabbitmq/data/
+    - /rabbitmq/log/
+    - /postgres/data/
+    - /postgres/log/
+
+### Copy docker-compose.yml file to server
+- name: "Copy docker-compose.yml file"
+  copy:
+    src: docker-compose.yml
+    dest: ~
 
 ### Run containers
+- name: "Run containers"
+  shell: "docker compose up -d"
 
+### Docker ps
+- name: "List of running containers"
+  shell: "docker ps"
+  register: docker_ps_result
+
+- debug:
+    var: docker_ps_result.stdout

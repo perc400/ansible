@@ -1,0 +1,47 @@
+services:
+  consumer_service:
+    image: '192.168.140.136:5000/consumer_service:latest'
+    container_name: consumer_service
+    depends_on:
+      - rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+
+  publisher_service:
+    image: '192.168.140.136:5000/publisher_service:latest'
+    container_name: publisher_service
+    depends_on:
+      - rabbitmq
+      - postgresql
+    restart: always
+    ports:
+      - '7070:8080'
+    environment:
+      - POSTGRES_CONNECTION=Host=postgresql;Port=5432;Database=usersdb;Username=api;Password=api;Pooling=true;
+      - RABBITMQ_HOST=rabbitmq
+
+  rabbitmq:
+    image: 'rabbitmq:3.13.7-management'
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - /rabbitmq/data/:/var/lib/rabbitmq
+      - /rabbitmq/log/:/var/log/rabbitmq
+
+  postgresql:
+    image: 'postgres:15.8'
+    container_name: postgresql
+    restart: always
+    ports:
+      - '5432:5432'
+    volumes:
+      - /postgres/data/:/var/lib/postgresql/data
+      - /postgres/log/:/var/log/postgresql
+    environment:
+      POSTGRES_USER: api
+      POSTGRES_PASSWORD: api
+      POSTGRES_DB: usersdb
