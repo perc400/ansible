@@ -11,6 +11,12 @@
           - curl
         state: latest
 
+    - name: "Install apt-transport-https [Debian]"
+      apt:
+        name:
+          - apt-transport-https
+        state: latest
+
     - name: "Create directory for keyrings [Debian]"
       file:
         path: /etc/apt/keyrings
@@ -23,11 +29,19 @@
         method: GET
         dest: /etc/apt/keyrings/docker.asc
         follow_redirects: safe
+        status_code: [200, 304]
 
     - name: "Ensure correct permissions for docker.asc [Debian]"
       file:
         path: /etc/apt/keyrings/docker.asc
         mode: a+r
+
+    - name: "Add the repository to Apt sources"
+      shell: 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null'
+
+    - name: "Update the repository cache [Debian]"
+      apt:
+        update_cache: yes
 
     - name: "Install Docker [Debian]"
       apt:
@@ -62,7 +76,7 @@
         name:
           - epel-release
         state: latest      
-###--allowerasing
+
     - name: "Install Docker [RedHat]"
       yum:
         name:
@@ -84,18 +98,13 @@
         var: docker_status.stdout
   when: ansible_os_family == "RedHat"
 
-### Add insecure registry
 - name: "Add insecure registry"
   copy:
     src: daemon.json
     dest: /etc/docker/daemon.json
+  notify:
+    - Restart Docker
 
-- name: "Restart Docker Service"
-  service:
-    name: docker
-    state: restarted
-
-### Login in private registry on infra-main
 - name: "Login in private docker.registry [192.168.140.136:5000]"
   docker_login:
     registry_url: "{{ registry }}"
@@ -113,22 +122,22 @@
     - /postgres/data/
     - /postgres/log/
 
-### Copy docker-compose.yml file to server
 - name: "Copy docker-compose.yml file"
   copy:
     src: docker-compose.yml
-    dest: ~/docker-compose.yml
+    dest: {{ item }}
+  with_items:
+    - ~/docker-compose.yml
+    - /home/{{ ansible_user }}/docker-compose.yml
 
-- name: "Copy docker-compose.yml file to /home/ansible"
-  copy:
-    src: docker-compose.yml
-    dest: /home/ansible/docker-compose.yml
+#- name: "Run containers"
+#  shell: "docker compose -f ~/docker-compose.yml up -d"
 
-### Run containers
-- name: "Run containers"
-  shell: "docker compose -f ~/docker-compose.yml up -d"
+- name: "Start services with Docker Compose"
+  community.docker.docker_compose:
+    project_src: ~/docker-compose.yml
+    state: present
 
-### Docker ps
 - name: "List of running containers"
   shell: "docker compose -f ~/docker-compose.yml ps"
   register: docker_ps_result

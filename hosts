@@ -9,6 +9,7 @@ proxy-server ansible_host=192.168.140.139
 
 [production_vm]
 prod-server ansible_host=192.168.140.140
+test-server ansible_host=192.168.140.141
 
 [all_VMs:children]
 app_vm
