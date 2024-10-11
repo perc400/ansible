@@ -125,18 +125,18 @@
 - name: "Copy docker-compose.yml file"
   copy:
     src: docker-compose.yml
-    dest: {{ item }}
+    dest: "{{ item }}"
   with_items:
     - ~/docker-compose.yml
     - /home/{{ ansible_user }}/docker-compose.yml
 
-#- name: "Run containers"
-#  shell: "docker compose -f ~/docker-compose.yml up -d"
+- name: "Run containers"
+  shell: "docker compose -f ~/docker-compose.yml up -d"
 
-- name: "Start services with Docker Compose"
-  community.docker.docker_compose:
-    project_src: ~/docker-compose.yml
-    state: present
+#- name: "Start services with Docker Compose"
+#  community.docker.docker_compose:
+#    project_src: ~/docker-compose.yml
+#    state: present
 
 - name: "List of running containers"
   shell: "docker compose -f ~/docker-compose.yml ps"
