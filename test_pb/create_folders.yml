@@ -1,0 +1,14 @@
+---
+- name: Create package directory 1
+  file:
+    path: /home/package/dir/{{ dir.dir1 }}
+    state: directory
+    owner: root
+    mode: u=rwx,g=rx,o=rx
+
+- name: Create package directory 2
+  file:
+    path: /home/package/dir/{{ dir.dir2 }}
+    state: directory
+    owner: root
+    mode: u=rwx,g=rx,o=rx

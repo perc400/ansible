@@ -3,99 +3,11 @@
 
 ### Install docker on Debian and RedHat hosts
 - block:
-    - name: "Update the repository cache And Install ca-certificates, curl [Debian]"
-      apt:
-        update_cache: yes
-        name:
-          - ca-certificates
-          - curl
-        state: latest
-
-    - name: "Install apt-transport-https [Debian]"
-      apt:
-        name:
-          - apt-transport-https
-        state: latest
-
-    - name: "Create directory for keyrings [Debian]"
-      file:
-        path: /etc/apt/keyrings
-        state: directory
-        mode: '0755'
-
-    - name: "Download Docker GPG-key to /etc/apt/keyrings/docker.asc [Debian]"
-      uri:
-        url: 'https://download.docker.com/linux/ubuntu/gpg'
-        method: GET
-        dest: /etc/apt/keyrings/docker.asc
-        follow_redirects: safe
-        status_code: [200, 304]
-
-    - name: "Ensure correct permissions for docker.asc [Debian]"
-      file:
-        path: /etc/apt/keyrings/docker.asc
-        mode: a+r
-
-    - name: "Add the repository to Apt sources"
-      shell: 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null'
-
-    - name: "Update the repository cache [Debian]"
-      apt:
-        update_cache: yes
-
-    - name: "Install Docker [Debian]"
-      apt:
-        name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-buildx-plugin
-          - docker-compose-plugin
-        state: latest
-
-    - name: "Start Docker and enable on boot [Debian]"
-      service: name=docker state=started enabled=yes
-
-    - name: "Print Docker status [Debian]"
-      shell: "systemctl status docker"
-      register: docker_status
-      
-    - debug:
-        var: docker_status.stdout
+    - include_tasks: install_docker_debian.yml
   when: ansible_os_family == "Debian"
 
 - block:
-    - name: "Add the Docker repo [RedHat]"
-      get_url:
-        url: https://download.docker.com/linux/rhel/docker-ce.repo
-        dest: /etc/yum.repos.d
-        mode: '0644'
-
-    - name: "Install Epel-release"
-      yum:
-        name:
-          - epel-release
-        state: latest      
-
-    - name: "Install Docker [RedHat]"
-      yum:
-        name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-compose-plugin
-        state: latest
-        allowerasing: true
-
-    - name: "Start Docker and enable on boot [RedHat]"
-      service: name=docker state=started enabled=yes
-
-    - name: "Print Docker status [RedHat]"
-      shell: "systemctl status docker"
-      register: docker_status
-
-    - debug:
-        var: docker_status.stdout
+    - include_tasks: install_docker_redhat.yml
   when: ansible_os_family == "RedHat"
 
 - name: "Add insecure registry"
@@ -143,4 +55,4 @@
   register: docker_ps_result
 
 - debug:
-    var: docker_ps_result.stdout
+    var: docker_ps_result.stdout_lines

@@ -1,13 +1,27 @@
 ---
 - name: Playbook for variables
-  hosts: all_VMs
+  hosts: "{{ HOST }}"
+  gather_facts: no
   become: yes
 
   vars:
     message_hello: Hello
     message_content: Content
     secret: SKDJFA@@_FDW432_4321FDS_FD
-
+    version:
+      - v1
+      - v2
+      - v3
+    user:
+      user1:
+        name: test1
+        role: admin
+      user2:
+        name: test2
+        role: user
+      user3:
+        name: test3
+        role: admin
 
   tasks:
 
@@ -29,7 +43,14 @@
     register: result
 
   - debug:
-      var: result
+      var: result.stdout_lines
 
   - debug:
-      var: result.stdout
+      var: version[0]
+
+  - debug:
+      var: user.user3.name
+
+  - name: Print element from dict
+    debug:
+      msg: "{{ user['user1']['name'] }}"

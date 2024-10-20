@@ -1,0 +1,5 @@
+ansible-playbook install_services_pb.yml --extra-var "HOSTS=production_vm"
+					 --extra-vars
+					 -e
+
+ansible-playbook install_services_pb.yml --extra-var "HOSTS=production_vm some_var=item"

@@ -1,0 +1,32 @@
+---
+- name: "Add the Docker repo [RedHat]"
+  get_url:
+    url: https://download.docker.com/linux/rhel/docker-ce.repo
+    dest: /etc/yum.repos.d
+    mode: '0644'
+
+- name: "Install Epel-release"
+  yum:
+    name:
+      - epel-release
+    state: latest      
+
+- name: "Install Docker [RedHat]"
+  yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+    state: latest
+    allowerasing: true
+
+- name: "Start Docker and enable on boot [RedHat]"
+  service: name=docker state=started enabled=yes
+
+- name: "Print Docker status [RedHat]"
+  shell: "systemctl status docker"
+  register: docker_status
+
+- debug:
+    var: docker_status.stdout_lines

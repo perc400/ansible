@@ -1,0 +1,9 @@
+---
+- name: Create README file
+  copy:
+    dest: /home/package/dir/{{ dir.file1 }}
+    content: |
+      Line1
+      Line2
+      {{ motd }}
+    mode: u=rwx,g=r,o=r

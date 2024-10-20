@@ -1,0 +1,27 @@
+---
+
+- name: Test Playbook
+  hosts: "{{ HOST }}"
+  gather_facts: false
+  become: yes
+
+  vars:
+    motd: "Hello!"
+    dir:
+      dir1: install
+      dir2: doc
+      file1: README
+
+  tasks:
+
+  - name: Ping host
+    ping:
+
+  - debug:
+      var: dir.dir1
+
+### include_tasks - включает таски из отдельных файлов
+### import_tasks - берет ВЕСЬ контент файла, поэтому в данном случае подойдет include
+
+  - include_tasks: create_folders.yml
+  - include_tasks: create_files.yml

@@ -1,6 +1,6 @@
 ---
 - name: Install Docker, PostgreSQL Container, RabbitMQ Container, Publisher-service, Consumer-service
-  hosts: production_vm
+  hosts: "{{ HOST }}"
   become: yes
 
   roles:
