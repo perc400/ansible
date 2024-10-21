@@ -1,0 +1,96 @@
+---
+### ansible-playbook configure_new_servers_pb.yml --ask-pass -u root -e ansible_user=root
+
+- name: Configure new server for Ansible
+  hosts: db-server
+  become: yes
+  vars:
+    conf_ansible_user: "ansible"
+    ansible_pubkey: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+
+  tasks:
+
+  - name: centos-base.repo
+    copy:
+      src: /root/ansible/centos-base.repo
+      dest: /etc/yum.repos.d/CentOS-Base.repo
+      mode: '0644'
+
+  - name: Upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+
+  - name: Install policycoreutils-python
+    yum:
+      name: policycoreutils-python
+      state: latest
+
+  - name: Create ansible user
+    user: 
+      name: "{{ conf_ansible_user }}"
+      shell: /bin/bash
+      createhome: yes 
+
+  - name: Add to sudoers
+    copy:
+      src: /root/ansible/ansible-sudoersd
+      dest: /etc/sudoers.d/ansible
+
+  - name: Create SSH directory
+    file:
+      path: "/home/{{ conf_ansible_user }}/.ssh"
+      state: directory
+      owner: "{{ conf_ansible_user }}"
+      group: "{{ conf_ansible_user }}"
+      mode: '0700'
+
+  - name: Set authorized_keys from file
+    authorized_key:
+      user: "{{ conf_ansible_user }}"
+      key: "{{ ansible_pubkey }}"
+      state: present
+
+  - name: Allow root login
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: "^#?PermitRootLogin"
+      line: 'PermitRootLogin yes'
+
+  - name: Enable authentication with public key
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: "^#?PubkeyAuthentication"
+      line: 'PubkeyAuthentication yes'
+
+  - name: Disable password authentication
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: "^#?PasswordAuthentication"
+      line: 'PasswordAuthentication no'
+
+  - name: Change SSH port
+    lineinfile:
+      path: /etc/ssh/sshd_config 
+      regexp: "^#?Port"
+      line: 'Port 2424'
+
+  - name: SEmanage port
+    shell: "semanage port -a -t ssh_port_t -p tcp 2424"
+    ignore_errors: true
+
+  - name: Add the new SSH port in the firewall
+    firewalld:
+      port: 2424/tcp
+      permanent: yes
+      state: enabled
+
+  - name: Reload firewall
+    service:
+      name: firewalld
+      state: restarted
+
+  - name: Restart SSH
+    service:
+      name: sshd
+      state: restarted
