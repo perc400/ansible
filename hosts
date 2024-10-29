@@ -20,3 +20,6 @@ proxy_vm
 monitoring_vm
 production_vm
 db_vm
+
+[localhost]
+infra-main ansible_connection=local

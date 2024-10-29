@@ -1,0 +1,26 @@
+---
+# tasks file for deploy_gitlab-runner
+- name: Get the binary file
+  get_url:
+    url: https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64
+    dest: /usr/local/bin/gitlab-runner
+    mode: u+x
+
+- name: Create a Gitlab CI user
+  user:
+    name: gitlab-runner
+    comment: 'GitLab runner'
+    create_home: yes
+    shell: /bin/bash
+
+- name: Install and run as service
+  shell: "gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner && gitlab-runner start"
+  ignore_errors: true
+
+- name: Create an instance-level runner
+  command: |
+    gitlab-runner register \
+    --non-interactive \
+    --url "http://192.168.140.139:8888" \
+    --token "{{ access_token }}" \
+    --executor "shell"

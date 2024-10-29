@@ -4,4 +4,3 @@
   become: yes
   roles:
     - role: deploy_postgresql
-    when: ansible_system == 'Linux'

@@ -1,0 +1,7 @@
+---
+- name: 'Install gitlab-runner as service'
+  hosts: "{{ HOST }}"
+  connection: local
+  become: yes
+  roles:
+    - role: deploy_gitlab-runner
